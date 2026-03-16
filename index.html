@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodhy Kurnia Rahmantyo - Portfolio</title>
+    <meta name="description" content="Portfolio of Dodhy Kurnia Rahmantyo, Full Stack Developer & Data Scientist.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">Dodhy<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="javascript:void(0)" class="btn btn-nav-download" id="download-cv-nav">Download CV</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class='bx bx-menu'></i>
+            </div>
+            <div class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">
+                <i class='bx bx-moon'></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <h3 class="greeting">Hello, I'm</h3>
+            <h1 class="name">Dodhy Kurnia</h1>
+            <h2 class="role">Full Stack Developer & Data Scientist</h2>
+            <p class="summary">
+                Passionate about acquiring new knowledge, robust work ethic, and developing solutions across web development, data analysis, and artificial intelligence.
+            </p>
+            <div class="hero-buttons">
+                <a href="javascript:void(0)" class="btn btn-primary" id="download-cv-hero">Download CV</a>
+                <a href="#experience" class="btn btn-secondary">Resume Details</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/dodhy-kurnia-rahmantyo" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin'></i></a>
+                <a href="mailto:dodhyk29@gmail.com"><i class='bx bx-envelope'></i></a>
+                <a href="tel:+6281230219922"><i class='bx bx-phone'></i></a>
+            </div>
+        </div>
+        <div class="hero-image fade-in delay-1">
+            <div class="image-wrapper">
+                <img src="assets/img/profile.jpg" alt="Dodhy Kurnia Profile">
+                <div class="circle-decoration"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ATS CV Template (Hidden) -->
+    <div id="ats-template" style="display: none;">
+        <div class="ats-cv">
+            <header>
+                <h1>Dodhy Kurnia Rahmantyo</h1>
+                <p>Full Stack Developer & Data Scientist</p>
+                <div class="ats-contact">
+                    <span>Email: dodhyk29@gmail.com</span> | 
+                    <span>Phone: +62 812-3021-9922</span> | 
+                    <span>LinkedIn: linkedin.com/in/dodhy-kurnia-rahmantyo</span>
+                </div>
+            </header>
+
+            <section>
+                <h2>Professional Summary</h2>
+                <p>Passionate full-stack developer and data scientist with expertise in web development, machine learning, and data analytics. Robust work ethic and a commitment to continuous learning.</p>
+            </section>
+
+            <section>
+                <h2>Experience</h2>
+                <div class="ats-item">
+                    <h3>Full Stack Developer - Solecode (Oct 2022 - Present)</h3>
+                    <ul>
+                        <li>Developed RESTful APIs using Java and Spring Boot.</li>
+                        <li>Engineered user interfaces with Wavemaker Studios.</li>
+                        <li>Designed and implemented ETL processes with Talend Data Studio.</li>
+                        <li>Created dynamic data visualizations in Power BI.</li>
+                        <li>Developed web applications using Zkoss.</li>
+                    </ul>
+                </div>
+                <div class="ats-item">
+                    <h3>Data Scientist - Labbola (Jun 2022 - Sep 2022)</h3>
+                    <ul>
+                        <li>Analyzed and processed complex datasets for predictive modeling.</li>
+                        <li>Engineered predictive models using Python and R.</li>
+                        <li>Collaborated on data processing techniques for ML models.</li>
+                        <li>Conducted data validation and insights presentation.</li>
+                    </ul>
+                </div>
+                <div class="ats-item">
+                    <h3>Engineer Intern - DataIns (Sep 2021 - Jan 2022)</h3>
+                    <ul>
+                        <li>Proficient in Apache Superset for data visualization.</li>
+                        <li>Engineered and maintained PostgreSQL databases.</li>
+                        <li>Contributed to custom modifications of Apache Superset.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Education</h2>
+                <div class="ats-item">
+                    <h3>Politeknik Negeri Jember (2018 - 2022)</h3>
+                    <p>Sarjana Terapan Komputer (S.Tr.Kom), Teknik Informatika</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Skills</h2>
+                <p><strong>Web Development:</strong> Java, Spring Boot, Wavemaker, Zkoss, HTML, CSS, JavaScript</p>
+                <p><strong>Data Science:</strong> Python, R, Machine Learning, Predictive Modeling, Statistics</p>
+                <p><strong>Tools:</strong> Power BI, Apache Superset, Talend, PostgreSQL</p>
+            </section>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="section-title fade-in">
+            <h2>About Me</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="about-content fade-in">
+            <p>
+                As a full-stack developer, my enthusiasm for acquiring new knowledge is boundless. My work ethic is robust, and I thrive in collaborative team environments, demonstrating flexibility across a variety of tasks.
+            </p>
+            <p>
+                My expertise spans web development, as well as data visualization, analysis, and artificial intelligence. I am currently deepening my skills in machine learning and data science, focusing on developing scalable models and staying at the forefront of technological advancements in the field.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills section glass-section" id="skills">
+        <div class="section-title fade-in">
+            <h2>Top Skills</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="skills-grid fade-in">
+            <div class="skill-card">
+                <i class='bx bx-code-alt'></i>
+                <h3>Web Development</h3>
+                <p>Full-stack development, Java, Spring Boot, Wavemaker Studios, Zkoss.</p>
+            </div>
+            <div class="skill-card">
+                <i class='bx bx-brain'></i>
+                <h3>Machine Learning & AI</h3>
+                <p>Python, R, Haskell, predictive modeling, statistical data processing.</p>
+            </div>
+            <div class="skill-card">
+                <i class='bx bx-bar-chart-alt-2'></i>
+                <h3>Data Analysis</h3>
+                <p>Data visualization, Power BI, Apache Superset, Talend Data Studio, PostgreSQL.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section (Tableau) -->
+    <section class="portfolio section" id="portfolio">
+        <div class="section-title fade-in">
+            <h2>Data Visualizations</h2>
+            <div class="underline"></div>
+        </div>
+        <p class="portfolio-desc fade-in">A showcase of interactive dashboards I've built using Tableau.</p>
+        
+        <div class="portfolio-grid fade-in">
+            <a href="https://public.tableau.com/app/profile/dodhyk/viz/IndonesiaDailyDashboard/Dashboard1" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+                <div class="card-glass">
+                    <i class='bx bx-line-chart'></i>
+                    <h3>Indonesia Daily Dashboard</h3>
+                    <span class="view-btn">View on Tableau <i class='bx bx-right-arrow-alt'></i></span>
+                </div>
+            </a>
+            <a href="https://public.tableau.com/app/profile/dodhyk/viz/Covid-19Case_16403500115720/Dashboard1" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+                <div class="card-glass">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <h3>Covid-19 Case</h3>
+                    <span class="view-btn">View on Tableau <i class='bx bx-right-arrow-alt'></i></span>
+                </div>
+            </a>
+            <a href="https://public.tableau.com/app/profile/dodhyk/viz/PlaystationGamesStatisticGlobalSales/Dashboard1" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+                <div class="card-glass">
+                    <i class='bx bx-joystick'></i>
+                    <h3>Playstation Games Global Sales</h3>
+                    <span class="view-btn">View on Tableau <i class='bx bx-right-arrow-alt'></i></span>
+                </div>
+            </a>
+            <a href="https://public.tableau.com/app/profile/dodhyk/viz/ManchesterUnitedStatisticDashboardFifa19/Dashboard2" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+                <div class="card-glass">
+                    <i class='bx bx-football'></i>
+                    <h3>Manchester United Stats Fifa 19</h3>
+                    <span class="view-btn">View on Tableau <i class='bx bx-right-arrow-alt'></i></span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience section" id="experience">
+        <div class="section-title fade-in">
+            <h2>Professional Experience</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="timeline">
+            <!-- Solecode -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3>Full Stack Developer</h3>
+                        <span class="company">Solecode</span>
+                        <span class="date">Oct 2022 - Present</span>
+                    </div>
+                    <ul class="timeline-details">
+                        <li>Developed RESTful APIs using Java and Spring Boot to facilitate backend services.</li>
+                        <li>Engineered user interfaces with Wavemaker Studios, enhancing UX/UI.</li>
+                        <li>Designed and implemented ETL processes with Talend Data Studio.</li>
+                        <li>Created dynamic data visualizations and reports in Power BI.</li>
+                        <li>Developed web application using Zkoss.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Labbola -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3>Data Scientist</h3>
+                        <span class="company">Labbola Sports Statistics & Data Management</span>
+                        <span class="date">Jun 2022 - Sep 2022</span>
+                    </div>
+                    <ul class="timeline-details">
+                        <li>Analyzed statistical and historical data for predictive modeling and performance estimation.</li>
+                        <li>Engineered predictive models to forecast outcomes and performance metrics utilizing Python and R.</li>
+                        <li>Collaborated to refine data processing techniques for ML models.</li>
+                        <li>Conducted data validation and presented insights to stakeholders.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DataIns -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3>Engineer Intern</h3>
+                        <span class="company">DataIns | PT Global Data Inspirasi</span>
+                        <span class="date">Sep 2021 - Jan 2022</span>
+                    </div>
+                    <ul class="timeline-details">
+                        <li>Gained proficiency in Apache Superset for data visualization.</li>
+                        <li>Engineered and maintained a PostgreSQL database.</li>
+                        <li>Contributed to custom modifications of Apache Superset open-source project.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education section glass-section" id="education">
+        <div class="section-title fade-in">
+            <h2>Education & Certifications</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="edu-container fade-in">
+            <div class="degree-card">
+                <i class='bx bxs-graduation icon-lg'></i>
+                <div class="degree-info">
+                    <h3>Sarjana Terapan Komputer (S.Tr.Kom), Teknik Informatika</h3>
+                    <p class="school">Politeknik Negeri Jember</p>
+                    <span class="date">Aug 2018 - Aug 2022</span>
+                </div>
+            </div>
+            
+            <div class="certifications">
+                <h3 class="cert-title">Certifications</h3>
+                <ul class="cert-list">
+                    <li><i class='bx bx-check-shield'></i> Project Data Analysis for Retail: Sales Performance Report</li>
+                    <li><i class='bx bx-check-shield'></i> Agile Development using Scrum Framework</li>
+                    <li><i class='bx bx-check-shield'></i> Python - Data Science</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="section-title fade-in">
+            <h2>Get In Touch</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="contact-container fade-in">
+            <p class="contact-text">Currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+            
+            <div class="contact-cards">
+                <a href="mailto:dodhyk29@gmail.com" class="contact-card">
+                    <i class='bx bx-envelope'></i>
+                    <h4>Email</h4>
+                    <span>dodhyk29@gmail.com</span>
+                </a>
+                <a href="tel:+6281230219922" class="contact-card">
+                    <i class='bx bxl-whatsapp'></i>
+                    <h4>Phone / WhatsApp</h4>
+                    <span>+62 812-3021-9922</span>
+                </a>
+                <a href="https://www.linkedin.com/in/dodhy-kurnia-rahmantyo" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <i class='bx bxl-linkedin'></i>
+                    <h4>LinkedIn</h4>
+                    <span>dodhy-kurnia-rahmantyo</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Dodhy Kurnia Rahmantyo. Built with passion.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
