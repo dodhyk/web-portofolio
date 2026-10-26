@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="proj_doc_title">Proyek &amp; Portofolio - Dodhy Kurnia Rahmantyo</title>
+    <meta name="description" content="Koleksi proyek enterprise, proyek riset data science & machine learning pribadi, serta dashboard analitik oleh Dodhy Kurnia Rahmantyo.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Boxicons for Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <i class='bx bx-left-arrow-alt'></i> <span data-i18n="nav_back">Kembali ke CV</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav_cv">CV ATS</a></li>
+                <li><a href="projects.html" class="active" data-i18n="nav_projects">Proyek</a></li>
+                <li><a href="articles.html" data-i18n="nav_articles">Artikel</a></li>
+            </ul>
+            <div class="lang-switch" role="group" aria-label="Pilihan Bahasa">
+                <button type="button" class="lang-btn active" data-lang="id" id="btn-lang-id" title="Bahasa Indonesia">ID</button>
+                <button type="button" class="lang-btn" data-lang="en" id="btn-lang-en" title="English">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="section projects-page-container">
+        <!-- Page Header -->
+        <header class="section-title">
+            <h2 data-i18n="proj_page_heading">Koleksi Proyek &amp; Portofolio</h2>
+            <p class="portfolio-desc" data-i18n="proj_page_subheading">
+                Eksplorasi mendalam proyek enterprise aktif, riset data science &amp; machine learning independen, proyek kompetisi, dan visualisasi data.
+            </p>
+        </header>
+
+        <!-- Category 1: Enterprise & Office Projects (Solecode) -->
+        <section class="project-category-block">
+            <div class="category-header">
+                <div class="category-icon"><i class='bx bx-buildings'></i></div>
+                <div>
+                    <h3 data-i18n="cat_enterprise_title">Proyek Kantor &amp; Enterprise (Solecode)</h3>
+                    <p class="category-subtitle" data-i18n="cat_enterprise_desc">Pengembangan solusi backend berskala besar, sistem pemantauan IoT, dan arsitektur data enterprise.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- ISS EV Charging -->
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-ongoing" data-i18n="badge_ongoing">Sedang Berjalan</span>
+                            <span class="role-pill" data-i18n="role_fullstack">Full Stack Developer</span>
+                        </div>
+                        <h4 class="card-title">ISS EV Charging Management System</h4>
+                        <div class="card-company">Solecode • Client: ISS</div>
+                        <p class="card-desc" data-i18n="proj_ev_desc">
+                            Membangun sistem aplikasi backend dan antarmuka terintegrasi untuk manajemen ekosistem stasiun pengisian daya kendaraan listrik (Electric Vehicle Charging), otorisasi sesi pengisian, dan monitoring konsumsi daya secara real-time.
+                        </p>
+                        <div class="card-tech-tags">
+                            <span class="tech-tag">NestJS</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">RESTful API</span>
+                            <span class="tech-tag">IoT Integration</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ISS Fuel Alat Berat -->
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-ongoing" data-i18n="badge_ongoing">Sedang Berjalan</span>
+                            <span class="role-pill" data-i18n="role_fullstack">Full Stack Developer</span>
+                        </div>
+                        <h4 class="card-title">ISS Fuel Alat Berat Monitoring System</h4>
+                        <div class="card-company">Solecode • Client: ISS</div>
+                        <p class="card-desc" data-i18n="proj_fuel_desc">
+                            Mengembangkan aplikasi pemantauan dan pengelolaan distribusi bahan bakar armada kendaraan berat industri guna mencegah anomali konsumsi BBM, audit penggunaan harian, dan kalkulasi efisiensi operasional.
+                        </p>
+                        <div class="card-tech-tags">
+                            <span class="tech-tag">NestJS</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Fleet Monitoring</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Medco Data Management -->
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-ongoing" data-i18n="badge_ongoing">Sedang Berjalan</span>
+                            <span class="role-pill" data-i18n="role_data_eng">Data Engineer</span>
+                        </div>
+                        <h4 class="card-title">Medco Data Management</h4>
+                        <div class="card-company">Solecode • Client: Medco</div>
+                        <p class="card-desc" data-i18n="proj_medco_desc">
+                            Mengimplementasikan tata kelola data (data governance), integrasi multi-sumber data, dan otomatisasi alur pipeline data enterprise menggunakan ekosistem IBM Cloud Pak for Data untuk menghasilkan sumber data terpadu yang siap analitik.
+                        </p>
+                        <div class="card-tech-tags">
+                            <span class="tech-tag">IBM Cloud Pak for Data</span>
+                            <span class="tech-tag">Data Engineering</span>
+                            <span class="tech-tag">Data Governance</span>
+                            <span class="tech-tag">Enterprise ETL</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Data Warehouse & BI System -->
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-completed" data-i18n="badge_completed">Selesai</span>
+                            <span class="role-pill" data-i18n="role_fullstack">Full Stack Developer</span>
+                        </div>
+                        <h4 class="card-title">Data Warehouse &amp; Business Intelligence System</h4>
+                        <div class="card-company">Solecode</div>
+                        <p class="card-desc" data-i18n="proj_dw_desc">
+                            Merancang arsitektur data warehouse enterprise untuk konsolidasi data multi-cabang, otomatisasi proses ETL harian, serta visualisasi indikator kinerja utama bisnis secara terpusat.
+                        </p>
+                        <div class="card-tech-tags">
+                            <span class="tech-tag">Talend</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Java</span>
+                        </div>
+                        <a href="https://portfolio.solecode.id/portfolio/data-warehouse-and-business-intelligence-system" target="_blank" rel="noopener noreferrer" class="card-action-btn">
+                            <span data-i18n="btn_view_portfolio">Lihat Detail Portofolio</span> <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- MKBD Reporting System -->
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-completed" data-i18n="badge_completed">Selesai</span>
+                            <span class="role-pill" data-i18n="role_fullstack">Full Stack Developer</span>
+                        </div>
+                        <h4 class="card-title">MKBD Reporting System</h4>
+                        <div class="card-company">Solecode</div>
+                        <p class="card-desc" data-i18n="proj_mkbd_desc">
+                            Pengembangan sistem kalkulasi dan pelaporan kepatuhan Modal Kerja Bersih Disesuaikan (MKBD) dengan validasi formula keuangan ketat sesuai standar regulasi pasar modal.
+                        </p>
+                        <div class="card-tech-tags">
+                            <span class="tech-tag">Java Spring Boot</span>
+                            <span class="tech-tag">ZKoss</span>
+                            <span class="tech-tag">Financial Analytics</span>
+                        </div>
+                        <a href="https://portfolio.solecode.id/portfolio/mkbd-reporting-system" target="_blank" rel="noopener noreferrer" class="card-action-btn">
+                            <span data-i18n="btn_view_portfolio">Lihat Detail Portofolio</span> <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Screening 3 -->
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-completed" data-i18n="badge_completed">Selesai</span>
+                            <span class="role-pill" data-i18n="role_support">Support Developer</span>
+                        </div>
+                        <h4 class="card-title">Screening 3: Acquisition Data Entry Module</h4>
+                        <div class="card-company">Solecode</div>
+                        <p class="card-desc" data-i18n="proj_screen_desc">
+                            Rekayasa ulang antarmuka formulir data entry dan alur verifikasi data pelanggan untuk mengoptimalkan kecepatan akuisisi dan validasi data pengguna baru.
+                        </p>
+                        <div class="card-tech-tags">
+                            <span class="tech-tag">WaveMaker</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">UX Re-engineering</span>
+                        </div>
+                        <a href="https://portfolio.solecode.id/portfolio/screening-3-re-engineering-acquisition-full-data-entry-module" target="_blank" rel="noopener noreferrer" class="card-action-btn">
+                            <span data-i18n="btn_view_portfolio">Lihat Detail Portofolio</span> <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Category 2: Personal Projects & Esports Analytics Roadmap -->
+        <section class="project-category-block">
+            <div class="category-header">
+                <div class="category-icon"><i class='bx bx-code-alt'></i></div>
+                <div>
+                    <h3 data-i18n="cat_personal_title">Proyek Pribadi &amp; Riset R&amp;D</h3>
+                    <p class="category-subtitle" data-i18n="cat_personal_desc">Eksplorasi independen di bidang functional programming, pengujian pipeline data sintesis, dan ekosistem analitik esports.</p>
+                </div>
+            </div>
+
+            <!-- ScrimMate Suite: Feature Showcase with Roadmap -->
+            <article class="scrimmate-hero-card">
+                <div class="scrimmate-header">
+                    <div class="scrimmate-meta">
+                        <span class="status-badge badge-ongoing" data-i18n="badge_ongoing">Sedang Berjalan</span>
+                        <span class="role-pill" data-i18n="role_creator">Kreator &amp; Lead Researcher</span>
+                    </div>
+                    <h4>ScrimMate: Esports Analytics &amp; Drafting Suite</h4>
+                    <p class="scrimmate-intro" data-i18n="scrimmate_intro">
+                        Ekosistem analitik dan persiapan tim esports komprehensif yang dirancang untuk mendukung pengambilan keputusan drafting berbasis data statistik dan kecerdasan buatan. Terbagi menjadi 5 fase terencana:
+                    </p>
+                </div>
+
+                <div class="roadmap-grid">
+                    <div class="roadmap-item completed-phase">
+                        <div class="phase-number">Fase 1</div>
+                        <h5>ScrimMate App</h5>
+                        <p data-i18n="phase_1_desc">Aplikasi drafting tim esports interaktif untuk simulasi skenario pick &amp; ban (selesai di lingkungan lokal).</p>
+                        <span class="phase-status phase-status-done"><i class='bx bx-check-circle'></i> Selesai Lokal</span>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="phase-number">Fase 2</div>
+                        <h5>Draft Data Collector</h5>
+                        <p data-i18n="phase_2_desc">Pipeline pengumpulan dan ingestion data historis draft pertandingan turnamen secara terstruktur.</p>
+                        <span class="phase-status phase-status-plan"><i class='bx bx-time'></i> Terencana</span>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="phase-number">Fase 3</div>
+                        <h5>OCR Pipeline</h5>
+                        <p data-i18n="phase_3_desc">Ekstraksi otomatis statistik skor dan detail pertandingan dari tangkapan layar (screenshot end-game).</p>
+                        <span class="phase-status phase-status-plan"><i class='bx bx-time'></i> Terencana</span>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="phase-number">Fase 4</div>
+                        <h5>Match Winner Prediction</h5>
+                        <p data-i18n="phase_4_desc">Model machine learning prediksi probabilitas kemenangan tim per game dengan fitur murni hero draft.</p>
+                        <span class="phase-status phase-status-plan"><i class='bx bx-time'></i> Terencana</span>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="phase-number">Fase 5</div>
+                        <h5>Player Recruitment Matrix</h5>
+                        <p data-i18n="phase_5_desc">Riset variabel performa per role, perancangan matriks evaluasi, validasi data, dan aplikasi talent scouting.</p>
+                        <span class="phase-status phase-status-plan"><i class='bx bx-time'></i> Riset &amp; Desain</span>
+                    </div>
+                </div>
+            </article>
+
+            <div class="portfolio-grid" style="margin-top: 25px;">
+                <!-- Haskell Data Quality -->
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-github"><i class='bx bxl-github'></i> Open Source</span>
+                            <span class="role-pill">Haskell</span>
+                        </div>
+                        <h4 class="card-title">Haskell Data Quality</h4>
+                        <div class="card-company">Personal Project</div>
+                        <p class="card-desc" data-i18n="proj_haskell_desc">
+                            Eksplorasi penjaminan kualitas dan validasi integritas dataset memanfaatkan paradigma functional programming yang murni, matematis, dan type-safe di Haskell.
+                        </p>
+                        <div class="card-tech-tags">
+                            <span class="tech-tag">Haskell</span>
+                            <span class="tech-tag">Data Quality</span>
+                            <span class="tech-tag">Functional Programming</span>
+                        </div>
+                        <a href="https://github.com/dodhyk/haskell-data-quality" target="_blank" rel="noopener noreferrer" class="card-action-btn">
+                            <span data-i18n="btn_view_github">Lihat di GitHub</span> <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Dirty Dataset Generator -->
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-github"><i class='bx bxl-github'></i> Open Source</span>
+                            <span class="role-pill">Python</span>
+                        </div>
+                        <h4 class="card-title">Dirty Dataset Generator</h4>
+                        <div class="card-company">Personal Project</div>
+                        <p class="card-desc" data-i18n="proj_dirty_desc">
+                            Generator data sintesis yang menyuntikkan berbagai anomali realistis (missing values, typo, inkonsistensi tipe data, outlier) untuk stress-testing pipeline pembersihan data dan model ML.
+                        </p>
+                        <div class="card-tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Data Synthesis</span>
+                            <span class="tech-tag">Data Quality Test</span>
+                        </div>
+                        <a href="https://github.com/dodhyk/dirty-dataset-generator" target="_blank" rel="noopener noreferrer" class="card-action-btn">
+                            <span data-i18n="btn_view_github">Lihat di GitHub</span> <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Category 3: Competition & Research Collaboration -->
+        <section class="project-category-block">
+            <div class="category-header">
+                <div class="category-icon"><i class='bx bx-trophy'></i></div>
+                <div>
+                    <h3 data-i18n="cat_competition_title">Proyek Kompetisi &amp; Kolaborasi Riset</h3>
+                    <p class="category-subtitle" data-i18n="cat_competition_desc">Analisis sains data olahraga kompetitif berbasis pelacakan spasial dan pergerakan taktis.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Analytics Cup 2 -->
+                <article class="project-showcase-card full-width-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-trophy"><i class='bx bx-award'></i> Analytics Cup 2</span>
+                            <span class="role-pill" data-i18n="role_collab">Kolaborator Riset</span>
+                        </div>
+                        <h4 class="card-title">From First Pressure to Defensive Response</h4>
+                        <div class="card-company">
+                            Kompetisi: Analytics Cup 2 • Berkolaborasi dengan <a href="https://github.com/dkruma/dkruma.github.io" target="_blank" rel="noopener noreferrer" style="color: var(--link-color); text-decoration: underline;">dkruma</a>
+                        </div>
+                        <p class="card-desc" data-i18n="proj_cup_desc">
+                            Proyek analitik sepak bola tingkat lanjut yang meneliti bagaimana sebuah momen tekanan awal (first pressure) memicu rantai respons defensif dari formasi tim lawan, dimodelkan menggunakan data event dan tracking spasial presisi tinggi.
+                        </p>
+                        <div class="card-tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Spatial Analytics</span>
+                            <span class="tech-tag">Sports Data Science</span>
+                            <span class="tech-tag">Predictive Modeling</span>
+                        </div>
+                        <a href="https://github.com/dodhyk/from-first-pressure-to-defensive-response" target="_blank" rel="noopener noreferrer" class="card-action-btn">
+                            <span data-i18n="btn_view_github">Lihat Repositori Analisis</span> <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Category 4: Interactive Data Visualizations (Tableau Public) -->
+        <section class="project-category-block">
+            <div class="category-header">
+                <div class="category-icon"><i class='bx bx-bar-chart-alt-2'></i></div>
+                <div>
+                    <h3 data-i18n="cat_tableau_title">Visualisasi Data Interaktif (Tableau Public)</h3>
+                    <p class="category-subtitle" data-i18n="cat_tableau_desc">Kumpulan dashboard analitik interaktif yang menyajikan data epidemiologi, demografi, olahraga, dan komersial.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-grid">
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-tableau">Tableau Public</span>
+                        </div>
+                        <h4 class="card-title">Indonesia Daily Dashboard</h4>
+                        <p class="card-desc" data-i18n="tab_desc_daily">Dashboard analitik interaktif yang memetakan tren indikator harian dan parameter demografis utama di Indonesia secara visual dan informatif.</p>
+                        <a href="https://public.tableau.com/app/profile/dodhyk/viz/IndonesiaDailyDashboard/Dashboard1" target="_blank" rel="noopener noreferrer" class="card-action-btn">
+                            <span data-i18n="btn_view_tableau">Buka di Tableau</span> <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-tableau">Tableau Public</span>
+                        </div>
+                        <h4 class="card-title">Covid-19 Case Analytics</h4>
+                        <p class="card-desc" data-i18n="tab_desc_covid">Visualisasi data multidimensi yang melacak laju sebaran infeksi, rasio kesembuhan, dan tren kurva statistik pandemi Covid-19.</p>
+                        <a href="https://public.tableau.com/app/profile/dodhyk/viz/Covid-19Case_16403500115720/Dashboard1" target="_blank" rel="noopener noreferrer" class="card-action-btn">
+                            <span data-i18n="btn_view_tableau">Buka di Tableau</span> <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-tableau">Tableau Public</span>
+                        </div>
+                        <h4 class="card-title">PlayStation Games Global Sales</h4>
+                        <p class="card-desc" data-i18n="tab_desc_games">Eksplorasi visual performa komersial judul game PlayStation dunia berdasarkan genre, distribusi penjualan regional, dan generasi konsol.</p>
+                        <a href="https://public.tableau.com/app/profile/dodhyk/viz/PlaystationGamesStatisticGlobalSales/Dashboard1" target="_blank" rel="noopener noreferrer" class="card-action-btn">
+                            <span data-i18n="btn_view_tableau">Buka di Tableau</span> <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-showcase-card">
+                    <div class="card-glass">
+                        <div class="card-top">
+                            <span class="status-badge badge-tableau">Tableau Public</span>
+                        </div>
+                        <h4 class="card-title">Manchester United Stats (FIFA 19)</h4>
+                        <p class="card-desc" data-i18n="tab_desc_mu">Analisis statistik komparatif performa pemain, persebaran atribut fisik dan teknis, serta evaluasi metrik formasi skuad.</p>
+                        <a href="https://public.tableau.com/app/profile/dodhyk/viz/ManchesterUnitedStatisticDashboardFifa19/Dashboard2" target="_blank" rel="noopener noreferrer" class="card-action-btn">
+                            <span data-i18n="btn_view_tableau">Buka di Tableau</span> <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p data-i18n="footer_art_text">&copy; 2026 Dodhy Kurnia Rahmantyo • Built with passion</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS for language and theme toggle -->
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

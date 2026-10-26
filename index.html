@@ -1,349 +1,348 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dodhy Kurnia Rahmantyo - Portfolio</title>
-    <meta name="description" content="Portfolio of Dodhy Kurnia Rahmantyo, Full Stack Developer & Data Scientist.">
-    <!-- Google Fonts -->
+    <title data-i18n="doc_title">Dodhy Kurnia Rahmantyo - CV ATS & Portofolio</title>
+    <meta name="description" content="CV ATS dan Portofolio Dodhy Kurnia Rahmantyo - Full Stack Developer & Data Scientist.">
+
+    <!-- Google Fonts: Serif for authentic ATS typography + clean sans for UI controls -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Boxicons for Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- html2pdf.js -->
+
+    <!-- html2pdf.js for direct ATS PDF generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
+
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="#" class="logo">Dodhy<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="articles.html">Articles</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="javascript:void(0)" class="btn btn-nav-download" id="download-cv-nav">Download CV</a></li>
-            </ul>
-            <div class="menu-toggle" id="mobile-menu">
-                <i class='bx bx-menu'></i>
+    <!-- Floating Top Toolbar (Hidden on print/PDF) -->
+    <header class="ats-toolbar no-print">
+        <div class="toolbar-container">
+            <div class="toolbar-brand">
+                <span class="brand-badge" data-i18n="brand_badge">CV ATS</span>
+                <span class="brand-name">Dodhy Kurnia Rahmantyo</span>
             </div>
-            <div class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">
-                <i class='bx bx-moon'></i>
-            </div>
-        </div>
-    </nav>
+            <div class="toolbar-actions">
+                <!-- Bilingual Switcher: ID | EN -->
+                <div class="lang-switch" role="group" aria-label="Pilihan Bahasa / Language Selection">
+                    <button type="button" class="lang-btn active" data-lang="id" id="btn-lang-id" title="Bahasa Indonesia">ID</button>
+                    <button type="button" class="lang-btn" data-lang="en" id="btn-lang-en" title="English">EN</button>
+                </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content fade-in">
-            <h3 class="greeting">Hello, I'm</h3>
-            <h1 class="name">Dodhy Kurnia</h1>
-            <h2 class="role">Full Stack Developer & Data Scientist</h2>
-            <p class="summary">
-                Passionate about acquiring new knowledge, robust work ethic, and developing solutions across web development, data analysis, and artificial intelligence.
-            </p>
-            <div class="hero-buttons">
-                <a href="javascript:void(0)" class="btn btn-primary" id="download-cv-hero">Download CV</a>
-                <a href="#experience" class="btn btn-secondary">Resume Details</a>
-            </div>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/dodhy-kurnia-rahmantyo" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin'></i></a>
-                <a href="mailto:dodhyk29@gmail.com"><i class='bx bx-envelope'></i></a>
-                <a href="tel:+6281230219922"><i class='bx bx-phone'></i></a>
-            </div>
-        </div>
-        <div class="hero-image fade-in delay-1">
-            <div class="image-wrapper">
-                <img src="assets/img/profile.jpg" alt="Dodhy Kurnia Profile">
-                <div class="circle-decoration"></div>
-            </div>
-        </div>
-    </section>
+                <a href="projects.html" class="toolbar-btn" title="Lihat Portofolio &amp; Proyek Lengkap">
+                    <i class='bx bx-grid-alt'></i>
+                    <span data-i18n="btn_projects">Proyek</span>
+                </a>
 
-    <!-- ATS CV Template (Hidden) -->
-    <div id="ats-template" style="display: none;">
-        <div class="ats-cv">
-            <header>
-                <h1>Dodhy Kurnia Rahmantyo</h1>
-                <p>Full Stack Developer & Data Scientist</p>
-                <div class="ats-contact">
-                    <span>Email: dodhyk29@gmail.com</span> | 
-                    <span>Phone: +62 812-3021-9922</span> | 
-                    <span>LinkedIn: linkedin.com/in/dodhy-kurnia-rahmantyo</span>
+                <button type="button" class="toolbar-btn toolbar-btn-primary" id="download-cv-btn" title="Unduh format PDF ATS">
+                    <i class='bx bx-download'></i>
+                    <span data-i18n="btn_download">Download CV</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main ATS Document Container -->
+    <div class="cv-wrapper">
+        <main class="ats-document" id="cv-content">
+
+            <!-- Header Section -->
+            <header class="ats-header">
+                <h1 class="ats-name">Dodhy Kurnia Rahmantyo</h1>
+                <p class="ats-role" data-i18n="header_role">Full Stack Developer &amp; Data Scientist</p>
+                <div class="ats-contact-bar">
+                    <span class="ats-contact-item ats-phone-pdf-only">
+                        <i class='bx bx-phone'></i> +62 812-3021-9922 <span class="ats-sep">|</span>
+                    </span>
+                    <a href="mailto:dodhyk29@gmail.com" class="ats-contact-link">
+                        <i class='bx bx-envelope'></i> dodhyk29@gmail.com
+                    </a>
+                    <span class="ats-sep">|</span>
+                    <a href="https://www.linkedin.com/in/dodhy-kurnia-rahmantyo" target="_blank" rel="noopener noreferrer" class="ats-contact-link">
+                        <i class='bx bxl-linkedin-square'></i> LinkedIn
+                    </a>
+                    <span class="ats-sep">|</span>
+                    <span class="ats-contact-item">
+                        <i class='bx bx-map'></i> <span data-i18n="contact_location">Jember, Jawa Timur, Indonesia</span>
+                    </span>
                 </div>
             </header>
 
-            <section>
-                <h2>Professional Summary</h2>
-                <p>Passionate full-stack developer and data scientist with expertise in web development, machine learning, and data analytics. Robust work ethic and a commitment to continuous learning.</p>
+            <!-- Profil / Summary -->
+            <section class="ats-section">
+                <h2 class="ats-section-title" data-i18n="sec_profile_title">Profil</h2>
+                <div class="ats-divider"></div>
+                <p class="ats-text" data-i18n="sec_profile_text">
+                    Full Stack Developer dan Data Scientist lulusan D4 Teknik Informatika Politeknik Negeri Jember dengan rekam jejak dalam pengembangan aplikasi web enterprise, arsitektur backend, serta pemrosesan data analitik dan pemodelan prediktif. Berpengalaman membangun RESTful API performa tinggi menggunakan Java dan Spring Boot, mengintegrasikan alur ETL data warehouse dengan Talend Data Studio, serta merancang visualisasi data interaktif dengan Power BI, Apache Superset, dan Tableau. Terbiasa bekerja secara sistematis, adaptif terhadap inovasi teknologi, serta memiliki komitmen kuat dalam menciptakan solusi komputasi yang efisien dan andal.
+                </p>
             </section>
 
-            <section>
-                <h2>Experience</h2>
-                <div class="ats-item">
-                    <h3>Full Stack Developer - Solecode (Oct 2022 - Present)</h3>
-                    <ul>
-                        <li>Developed RESTful APIs using Java and Spring Boot.</li>
-                        <li>Engineered user interfaces with Wavemaker Studios.</li>
-                        <li>Designed and implemented ETL processes with Talend Data Studio.</li>
-                        <li>Created dynamic data visualizations in Power BI.</li>
-                        <li>Developed web applications using Zkoss.</li>
+            <!-- Kemampuan Utama / Core Skills -->
+            <section class="ats-section">
+                <h2 class="ats-section-title" data-i18n="sec_skills_title">Kemampuan Utama</h2>
+                <div class="ats-divider"></div>
+                <div class="ats-skills-grid">
+                    <ul class="ats-list">
+                        <li data-i18n="skill_1">Java, Spring Boot &amp; NestJS (Node.js)</li>
+                        <li data-i18n="skill_2">RESTful API Architecture &amp; Integration</li>
+                        <li data-i18n="skill_3">WaveMaker Studios &amp; ZKoss Framework</li>
+                        <li data-i18n="skill_4">Frontend (HTML5, CSS3, JavaScript)</li>
+                        <li data-i18n="skill_5">Database PostgreSQL &amp; Optimasi Query</li>
+                        <li data-i18n="skill_6">Pipeline ETL &amp; IBM Cloud Pak for Data</li>
                     </ul>
-                </div>
-                <div class="ats-item">
-                    <h3>Data Scientist - Labbola (Jun 2022 - Sep 2022)</h3>
-                    <ul>
-                        <li>Analyzed and processed complex datasets for predictive modeling.</li>
-                        <li>Engineered predictive models using Python and R.</li>
-                        <li>Collaborated on data processing techniques for ML models.</li>
-                        <li>Conducted data validation and insights presentation.</li>
-                    </ul>
-                </div>
-                <div class="ats-item">
-                    <h3>Engineer Intern - DataIns (Sep 2021 - Jan 2022)</h3>
-                    <ul>
-                        <li>Proficient in Apache Superset for data visualization.</li>
-                        <li>Engineered and maintained PostgreSQL databases.</li>
-                        <li>Contributed to custom modifications of Apache Superset.</li>
+                    <ul class="ats-list">
+                        <li data-i18n="skill_7">Data Science &amp; Machine Learning (Python, R, Haskell)</li>
+                        <li data-i18n="skill_8">Pemodelan Prediktif &amp; Analisis Statistik</li>
+                        <li data-i18n="skill_9">Tableau Public &amp; Dashboard Interaktif</li>
+                        <li data-i18n="skill_10">Visualisasi Power BI &amp; Apache Superset</li>
+                        <li data-i18n="skill_11">Problem Solving &amp; Prinsip Clean Code</li>
+                        <li data-i18n="skill_12">Agile Development &amp; Scrum Framework</li>
                     </ul>
                 </div>
             </section>
 
-            <section>
-                <h2>Education</h2>
+            <!-- Portofolio & Proyek -->
+            <section class="ats-section" id="portofolio-section">
+                <h2 class="ats-section-title" data-i18n="sec_projects_title">Portofolio &amp; Proyek</h2>
+                <div class="ats-divider"></div>
+
+                <!-- Solecode Professional Projects -->
                 <div class="ats-item">
-                    <h3>Politeknik Negeri Jember (2018 - 2022)</h3>
-                    <p>Sarjana Terapan Komputer (S.Tr.Kom), Teknik Informatika</p>
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title">
+                            <a href="https://portfolio.solecode.id/portfolio/data-warehouse-and-business-intelligence-system" target="_blank" rel="noopener noreferrer" class="ats-project-link">Data Warehouse and Business Intelligence System</a>
+                        </h3>
+                        <span class="ats-item-date" data-i18n="role_fullstack">Full Stack Developer</span>
+                    </div>
+                    <div class="ats-item-subtitle">Solecode</div>
+                    <ul class="ats-list">
+                        <li data-i18n="proj_dw_1">Mengembangkan arsitektur data warehouse terpusat untuk pelaporan bisnis terintegrasi dan konsolidasi data multi-sistem.</li>
+                        <li data-i18n="proj_dw_2">Membangun alur ETL dan data warehouse yang memungkinkan pelaporan real-time serta dashboard analitik eksekutif.</li>
+                    </ul>
+                </div>
+
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title">
+                            <a href="https://portfolio.solecode.id/portfolio/mkbd-reporting-system" target="_blank" rel="noopener noreferrer" class="ats-project-link">MKBD Reporting System</a>
+                        </h3>
+                        <span class="ats-item-date" data-i18n="role_fullstack">Full Stack Developer</span>
+                    </div>
+                    <div class="ats-item-subtitle">Solecode</div>
+                    <ul class="ats-list">
+                        <li data-i18n="proj_mkbd_1">Merancang dan merekayasa sistem pelaporan berkala Modal Kerja Bersih Disesuaikan (MKBD) untuk monitoring rasio finansial secara akurat.</li>
+                        <li data-i18n="proj_mkbd_2">Mengoptimalkan pemrosesan kalkulasi formula keuangan kompleks guna menjamin kepatuhan ketat terhadap standar regulasi pasar modal.</li>
+                    </ul>
+                </div>
+
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title">
+                            <a href="https://portfolio.solecode.id/portfolio/screening-3-re-engineering-acquisition-full-data-entry-module" target="_blank" rel="noopener noreferrer" class="ats-project-link">Screening 3: Re-engineering Acquisition Full Data Entry Module</a>
+                        </h3>
+                        <span class="ats-item-date" data-i18n="role_support">Support Developer</span>
+                    </div>
+                    <div class="ats-item-subtitle">Solecode</div>
+                    <ul class="ats-list">
+                        <li data-i18n="proj_screen_1">Mendukung proses rekayasa ulang (re-engineering) modul entri data akuisisi pelanggan untuk memangkas waktu verifikasi dan meminimalkan galat input manual.</li>
+                        <li data-i18n="proj_screen_2">Berkontribusi pada sinkronisasi komponen antarmuka pengguna serta integrasi validasi data backend.</li>
+                    </ul>
+                </div>
+
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title">
+                            <a href="https://portfolio.solecode.id/portfolio/membership-management-for-finance-market-segment" target="_blank" rel="noopener noreferrer" class="ats-project-link">Membership Management for Finance Market Segment</a>
+                        </h3>
+                        <span class="ats-item-date" data-i18n="role_support">Support Developer</span>
+                    </div>
+                    <div class="ats-item-subtitle">Solecode</div>
+                    <ul class="ats-list">
+                        <li data-i18n="proj_member_1">Membantu pembangunan sistem manajemen keanggotaan terstruktur khusus segmen pasar keuangan.</li>
+                        <li data-i18n="proj_member_2">Mengimplementasikan modul administrasi peran pengguna, audit log aktivitas transaksi, serta alur otorisasi berjenjang.</li>
+                    </ul>
+                </div>
+
+                <!-- Tableau Visualizations -->
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title">
+                            <a href="https://public.tableau.com/app/profile/dodhyk/viz/IndonesiaDailyDashboard/Dashboard1" target="_blank" rel="noopener noreferrer" class="ats-project-link">Indonesia Daily Dashboard</a>
+                        </h3>
+                        <span class="ats-item-date">Tableau Public</span>
+                    </div>
+                    <div class="ats-item-subtitle" data-i18n="tab_sub_daily">Visualisasi Data Interaktif</div>
+                    <ul class="ats-list">
+                        <li data-i18n="tab_desc_daily">Dashboard analitik interaktif yang memetakan tren indikator harian dan parameter demografis utama di Indonesia secara visual dan informatif.</li>
+                    </ul>
+                </div>
+
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title">
+                            <a href="https://public.tableau.com/app/profile/dodhyk/viz/Covid-19Case_16403500115720/Dashboard1" target="_blank" rel="noopener noreferrer" class="ats-project-link">Covid-19 Case Analytics Dashboard</a>
+                        </h3>
+                        <span class="ats-item-date">Tableau Public</span>
+                    </div>
+                    <div class="ats-item-subtitle" data-i18n="tab_sub_covid">Visualisasi Data Epidemiologi</div>
+                    <ul class="ats-list">
+                        <li data-i18n="tab_desc_covid">Visualisasi data multidimensi yang melacak laju sebaran infeksi, rasio kesembuhan, dan tren kurva statistik pandemi Covid-19.</li>
+                    </ul>
+                </div>
+
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title">
+                            <a href="https://public.tableau.com/app/profile/dodhyk/viz/PlaystationGamesStatisticGlobalSales/Dashboard1" target="_blank" rel="noopener noreferrer" class="ats-project-link">PlayStation Games Global Sales Statistics</a>
+                        </h3>
+                        <span class="ats-item-date">Tableau Public</span>
+                    </div>
+                    <div class="ats-item-subtitle" data-i18n="tab_sub_games">Visualisasi Analisis Pasar</div>
+                    <ul class="ats-list">
+                        <li data-i18n="tab_desc_games">Eksplorasi visual performa komersial judul game PlayStation dunia berdasarkan genre, distribusi penjualan regional, dan generasi konsol.</li>
+                    </ul>
+                </div>
+
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title">
+                            <a href="https://public.tableau.com/app/profile/dodhyk/viz/ManchesterUnitedStatisticDashboardFifa19/Dashboard2" target="_blank" rel="noopener noreferrer" class="ats-project-link">Manchester United Stats (FIFA 19)</a>
+                        </h3>
+                        <span class="ats-item-date">Tableau Public</span>
+                    </div>
+                    <div class="ats-item-subtitle" data-i18n="tab_sub_mu">Visualisasi Analitik Olahraga</div>
+                    <ul class="ats-list">
+                        <li data-i18n="tab_desc_mu">Analisis statistik komparatif performa pemain, persebaran atribut fisik dan teknis, serta evaluasi metrik formasi skuad.</li>
+                    </ul>
+                </div>
+
+                <!-- Analytics Cup 2 -->
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title">
+                            <a href="https://github.com/dodhyk/from-first-pressure-to-defensive-response" target="_blank" rel="noopener noreferrer" class="ats-project-link">Analytics Cup 2: From First Pressure to Defensive Response</a>
+                        </h3>
+                        <span class="ats-item-date" data-i18n="role_collab">Kolaborator Riset</span>
+                    </div>
+                    <div class="ats-item-subtitle" data-i18n="cup_subtitle">Kompetisi Analytics Cup 2 • Kolaborasi dengan dkruma</div>
+                    <ul class="ats-list">
+                        <li data-i18n="proj_cup_desc">Proyek analitik sepak bola tingkat lanjut yang meneliti rantai respons defensif dari momen tekanan awal lawan menggunakan pemodelan data spasial dan tracking event.</li>
+                    </ul>
+                </div>
+
+                <!-- Articles / Medium -->
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title">
+                            <a href="articles.html" class="ats-project-link" data-i18n="art_title">Publikasi &amp; Artikel Data Science &amp; Machine Learning</a>
+                        </h3>
+                        <span class="ats-item-date" data-i18n="role_author">Penulis / Author</span>
+                    </div>
+                    <div class="ats-item-subtitle">Medium Technical Publications</div>
+                    <ul class="ats-list">
+                        <li data-i18n="art_desc">Menulis 5+ artikel teknis mengenai implementasi machine learning klasifikasi gagal jantung, analisis tren streaming lagu Spotify Indonesia, serta model regresi logistik prediksi Titanic survival di Kaggle.</li>
+                    </ul>
                 </div>
             </section>
 
-            <section>
-                <h2>Skills</h2>
-                <p><strong>Web Development:</strong> Java, Spring Boot, Wavemaker, Zkoss, HTML, CSS, JavaScript</p>
-                <p><strong>Data Science:</strong> Python, R, Machine Learning, Predictive Modeling, Statistics</p>
-                <p><strong>Tools:</strong> Power BI, Apache Superset, Talend, PostgreSQL</p>
+            <!-- Pengalaman Kerja / Professional Experience -->
+            <section class="ats-section">
+                <h2 class="ats-section-title" data-i18n="sec_exp_title">Pengalaman Kerja</h2>
+                <div class="ats-divider"></div>
+
+                <!-- Solecode -->
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title" data-i18n="role_fullstack">Full Stack Developer</h3>
+                        <span class="ats-item-date" data-i18n="exp_sole_date">Okt 2022 – Sekarang</span>
+                    </div>
+                    <div class="ats-item-subtitle">Solecode</div>
+                    <ul class="ats-list">
+                        <li data-i18n="exp_sole_0a">Memimpin pengembangan backend &amp; full-stack sistem ISS EV Charging serta sistem monitoring BBM armada alat berat (ISS Fuel) menggunakan NestJS dan Node.js.</li>
+                        <li data-i18n="exp_sole_0b">Bertindak sebagai Data Engineer dalam proyek Medco Data Management untuk tata kelola data terpadu menggunakan ekosistem IBM Cloud Pak for Data.</li>
+                        <li data-i18n="exp_sole_1">Mengembangkan layanan RESTful API tangguh dan terstandarisasi menggunakan Java dan framework Spring Boot guna menyokong kebutuhan backend perusahaan.</li>
+                        <li data-i18n="exp_sole_2">Membangun serta memelihara antarmuka pengguna berbasis web modern menggunakan WaveMaker Studios dan ZKoss framework untuk pengalaman pengguna optimal.</li>
+                        <li data-i18n="exp_sole_3">Merancang, menguji, dan mengeksekusi pipeline ETL (Extract, Transform, Load) menggunakan Talend Data Studio untuk mengintegrasikan aliran data bisnis berskala besar.</li>
+                        <li data-i18n="exp_sole_4">Membuat laporan analitik dinamis dan dashboard interaktif menggunakan Power BI untuk mendukung pengambilan keputusan berbasis data.</li>
+                    </ul>
+                </div>
+
+                <!-- Labbola -->
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title" data-i18n="role_ds">Data Scientist</h3>
+                        <span class="ats-item-date" data-i18n="exp_lab_date">Jun 2022 – Sep 2022</span>
+                    </div>
+                    <div class="ats-item-subtitle">Labbola Sports Statistics &amp; Data Management</div>
+                    <ul class="ats-list">
+                        <li data-i18n="exp_lab_1">Menganalisis dataset statistik dan historis berskala besar untuk kebutuhan predictive modeling dan evaluasi performa kuantitatif.</li>
+                        <li data-i18n="exp_lab_2">Mengembangkan model prediksi statistik menggunakan Python dan R guna memproyeksikan metrik dan estimasi probabilitas hasil.</li>
+                        <li data-i18n="exp_lab_3">Berkolaborasi aktif merancang teknik pembersihan data, feature engineering, serta optimasi pipeline pelatihan model machine learning.</li>
+                        <li data-i18n="exp_lab_4">Melakukan validasi data secara berkala dan mempresentasikan actionable insights kepada jajaran pemangku kepentingan (stakeholders).</li>
+                    </ul>
+                </div>
+
+                <!-- DataIns -->
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title" data-i18n="role_intern">Engineer Intern</h3>
+                        <span class="ats-item-date" data-i18n="exp_datains_date">Sep 2021 – Jan 2022</span>
+                    </div>
+                    <div class="ats-item-subtitle">DataIns | PT Global Data Inspirasi</div>
+                    <ul class="ats-list">
+                        <li data-i18n="exp_datains_1">Mengonfigurasi dan mengoperasikan platform Apache Superset untuk perancangan visualisasi data eksploratif.</li>
+                        <li data-i18n="exp_datains_2">Merancang skema relasional, memelihara integritas, dan mengoptimalkan performa kueri basis data PostgreSQL.</li>
+                        <li data-i18n="exp_datains_3">Berkontribusi dalam riset penyesuaian fungsional dan kustomisasi kode pada ekosistem open-source Apache Superset.</li>
+                    </ul>
+                </div>
             </section>
-        </div>
+
+            <!-- Pendidikan / Education -->
+            <section class="ats-section">
+                <h2 class="ats-section-title" data-i18n="sec_edu_title">Pendidikan</h2>
+                <div class="ats-divider"></div>
+                <div class="ats-item">
+                    <div class="ats-item-header">
+                        <h3 class="ats-item-title" data-i18n="edu_degree">D4 Teknik Informatika - Politeknik Negeri Jember</h3>
+                        <span class="ats-item-date" data-i18n="edu_grad">Lulus 2022</span>
+                    </div>
+                    <div class="ats-item-subtitle" data-i18n="edu_sub">Sarjana Terapan Komputer (S.Tr.Kom) • 2018 – 2022</div>
+                    <p class="ats-meta-text" data-i18n="edu_meta">
+                        <strong>Mata Kuliah Relevan:</strong> Rekayasa Perangkat Lunak, Struktur Data &amp; Algoritma, Basis Data Relasional, Machine Learning, Data Analytics, Pemrograman Berorientasi Objek.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Sertifikat / Certifications -->
+            <section class="ats-section">
+                <h2 class="ats-section-title" data-i18n="sec_cert_title">Sertifikat</h2>
+                <div class="ats-divider"></div>
+                <ul class="ats-list">
+                    <li data-i18n="cert_1">Project Data Analysis for Retail: Sales Performance Report - DQLab</li>
+                    <li data-i18n="cert_2">Agile Development using Scrum Framework</li>
+                    <li data-i18n="cert_3">Python - Data Science Certification</li>
+                </ul>
+            </section>
+
+        </main>
     </div>
 
-    <!-- About Section -->
-    <section class="about section" id="about">
-        <div class="section-title fade-in">
-            <h2>About Me</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="about-content fade-in">
-            <p>
-                As a full-stack developer, my enthusiasm for acquiring new knowledge is boundless. My work ethic is robust, and I thrive in collaborative team environments, demonstrating flexibility across a variety of tasks.
-            </p>
-            <p>
-                My expertise spans web development, as well as data visualization, analysis, and artificial intelligence. I am currently deepening my skills in machine learning and data science, focusing on developing scalable models and staying at the forefront of technological advancements in the field.
-            </p>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills section glass-section" id="skills">
-        <div class="section-title fade-in">
-            <h2>Top Skills</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="skills-grid fade-in">
-            <div class="skill-card">
-                <i class='bx bx-code-alt'></i>
-                <h3>Web Development</h3>
-                <p>Full-stack development, Java, Spring Boot, Wavemaker Studios, Zkoss.</p>
-            </div>
-            <div class="skill-card">
-                <i class='bx bx-brain'></i>
-                <h3>Machine Learning & AI</h3>
-                <p>Python, R, Haskell, predictive modeling, statistical data processing.</p>
-            </div>
-            <div class="skill-card">
-                <i class='bx bx-bar-chart-alt-2'></i>
-                <h3>Data Analysis</h3>
-                <p>Data visualization, Power BI, Apache Superset, Talend Data Studio, PostgreSQL.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section (Tableau) -->
-    <section class="portfolio section" id="portfolio">
-        <div class="section-title fade-in">
-            <h2>Data Visualizations</h2>
-            <div class="underline"></div>
-        </div>
-        <p class="portfolio-desc fade-in">A showcase of interactive dashboards I've built using Tableau.</p>
-        
-        <div class="portfolio-grid fade-in">
-            <a href="https://public.tableau.com/app/profile/dodhyk/viz/IndonesiaDailyDashboard/Dashboard1" target="_blank" rel="noopener noreferrer" class="portfolio-card">
-                <div class="card-glass">
-                    <i class='bx bx-line-chart'></i>
-                    <h3>Indonesia Daily Dashboard</h3>
-                    <span class="view-btn">View on Tableau <i class='bx bx-right-arrow-alt'></i></span>
-                </div>
-            </a>
-            <a href="https://public.tableau.com/app/profile/dodhyk/viz/Covid-19Case_16403500115720/Dashboard1" target="_blank" rel="noopener noreferrer" class="portfolio-card">
-                <div class="card-glass">
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <h3>Covid-19 Case</h3>
-                    <span class="view-btn">View on Tableau <i class='bx bx-right-arrow-alt'></i></span>
-                </div>
-            </a>
-            <a href="https://public.tableau.com/app/profile/dodhyk/viz/PlaystationGamesStatisticGlobalSales/Dashboard1" target="_blank" rel="noopener noreferrer" class="portfolio-card">
-                <div class="card-glass">
-                    <i class='bx bx-joystick'></i>
-                    <h3>Playstation Games Global Sales</h3>
-                    <span class="view-btn">View on Tableau <i class='bx bx-right-arrow-alt'></i></span>
-                </div>
-            </a>
-            <a href="https://public.tableau.com/app/profile/dodhyk/viz/ManchesterUnitedStatisticDashboardFifa19/Dashboard2" target="_blank" rel="noopener noreferrer" class="portfolio-card">
-                <div class="card-glass">
-                    <i class='bx bx-football'></i>
-                    <h3>Manchester United Stats Fifa 19</h3>
-                    <span class="view-btn">View on Tableau <i class='bx bx-right-arrow-alt'></i></span>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="experience section" id="experience">
-        <div class="section-title fade-in">
-            <h2>Professional Experience</h2>
-            <div class="underline"></div>
-        </div>
-        
-        <div class="timeline">
-            <!-- Solecode -->
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <h3>Full Stack Developer</h3>
-                        <span class="company">Solecode</span>
-                        <span class="date">Oct 2022 - Present</span>
-                    </div>
-                    <ul class="timeline-details">
-                        <li>Developed RESTful APIs using Java and Spring Boot to facilitate backend services.</li>
-                        <li>Engineered user interfaces with Wavemaker Studios, enhancing UX/UI.</li>
-                        <li>Designed and implemented ETL processes with Talend Data Studio.</li>
-                        <li>Created dynamic data visualizations and reports in Power BI.</li>
-                        <li>Developed web application using Zkoss.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Labbola -->
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <h3>Data Scientist</h3>
-                        <span class="company">Labbola Sports Statistics & Data Management</span>
-                        <span class="date">Jun 2022 - Sep 2022</span>
-                    </div>
-                    <ul class="timeline-details">
-                        <li>Analyzed statistical and historical data for predictive modeling and performance estimation.</li>
-                        <li>Engineered predictive models to forecast outcomes and performance metrics utilizing Python and R.</li>
-                        <li>Collaborated to refine data processing techniques for ML models.</li>
-                        <li>Conducted data validation and presented insights to stakeholders.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- DataIns -->
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <h3>Engineer Intern</h3>
-                        <span class="company">DataIns | PT Global Data Inspirasi</span>
-                        <span class="date">Sep 2021 - Jan 2022</span>
-                    </div>
-                    <ul class="timeline-details">
-                        <li>Gained proficiency in Apache Superset for data visualization.</li>
-                        <li>Engineered and maintained a PostgreSQL database.</li>
-                        <li>Contributed to custom modifications of Apache Superset open-source project.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section class="education section glass-section" id="education">
-        <div class="section-title fade-in">
-            <h2>Education & Certifications</h2>
-            <div class="underline"></div>
-        </div>
-        
-        <div class="edu-container fade-in">
-            <div class="degree-card">
-                <i class='bx bxs-graduation icon-lg'></i>
-                <div class="degree-info">
-                    <h3>Sarjana Terapan Komputer (S.Tr.Kom), Teknik Informatika</h3>
-                    <p class="school">Politeknik Negeri Jember</p>
-                    <span class="date">Aug 2018 - Aug 2022</span>
-                </div>
-            </div>
-            
-            <div class="certifications">
-                <h3 class="cert-title">Certifications</h3>
-                <ul class="cert-list">
-                    <li><i class='bx bx-check-shield'></i> Project Data Analysis for Retail: Sales Performance Report</li>
-                    <li><i class='bx bx-check-shield'></i> Agile Development using Scrum Framework</li>
-                    <li><i class='bx bx-check-shield'></i> Python - Data Science</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact section" id="contact">
-        <div class="section-title fade-in">
-            <h2>Get In Touch</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="contact-container fade-in">
-            <p class="contact-text">Currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-            
-            <div class="contact-cards">
-                <a href="mailto:dodhyk29@gmail.com" class="contact-card">
-                    <i class='bx bx-envelope'></i>
-                    <h4>Email</h4>
-                    <span>dodhyk29@gmail.com</span>
-                </a>
-                <a href="tel:+6281230219922" class="contact-card">
-                    <i class='bx bxl-whatsapp'></i>
-                    <h4>Phone / WhatsApp</h4>
-                    <span>+62 812-3021-9922</span>
-                </a>
-                <a href="https://www.linkedin.com/in/dodhy-kurnia-rahmantyo" target="_blank" rel="noopener noreferrer" class="contact-card">
-                    <i class='bx bxl-linkedin'></i>
-                    <h4>LinkedIn</h4>
-                    <span>dodhy-kurnia-rahmantyo</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 Dodhy Kurnia Rahmantyo. Built with passion.</p>
-        </div>
+    <!-- Minimal Footer (Hidden on print) -->
+    <footer class="ats-footer no-print">
+        <p data-i18n="footer_text">&copy; 2026 Dodhy Kurnia Rahmantyo • CV ATS &amp; Portofolio</p>
     </footer>
 
     <!-- Custom JS -->
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>

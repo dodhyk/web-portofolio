@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles - Dodhy Kurnia Rahmantyo</title>
-    <meta name="description" content="Articles and publications by Dodhy Kurnia Rahmantyo out on Medium.">
+    <title data-i18n="art_doc_title">Publikasi &amp; Artikel - Dodhy Kurnia Rahmantyo</title>
+    <meta name="description" content="Kumpulan artikel dan publikasi Medium oleh Dodhy Kurnia Rahmantyo seputar Data Science & Machine Learning.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Boxicons for Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Custom CSS -->
@@ -16,74 +16,83 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar scrolled">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
         <div class="nav-content">
-            <a href="index.html" class="logo"><i class='bx bx-left-arrow-alt'></i> Back<span>.</span></a>
+            <a href="index.html" class="logo"><i class='bx bx-left-arrow-alt'></i> <span data-i18n="nav_back">Kembali ke CV</span></a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="articles.html" class="active">Articles</a></li>
+                <li><a href="index.html" data-i18n="nav_cv">CV ATS</a></li>
+                <li><a href="projects.html" data-i18n="nav_projects">Proyek</a></li>
+                <li><a href="articles.html" class="active" data-i18n="nav_articles">Artikel</a></li>
             </ul>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="lang-switch" role="group" aria-label="Pilihan Bahasa">
+                    <button type="button" class="lang-btn active" data-lang="id" id="btn-lang-id" title="Bahasa Indonesia">ID</button>
+                    <button type="button" class="lang-btn" data-lang="en" id="btn-lang-en" title="English">EN</button>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Articles Section -->
-    <section class="section" style="padding-top: 150px; min-height: 80vh;">
-        <div class="section-title fade-in appear">
-            <h2>My Publications</h2>
-            <div class="underline"></div>
+    <main class="section" style="min-height: 80vh;">
+        <div class="section-title">
+            <h2 data-i18n="art_page_title">Publikasi &amp; Artikel Teknis</h2>
         </div>
-        <p class="portfolio-desc fade-in appear">Thoughts, analysis, and tutorials published on Medium.</p>
+        <p class="portfolio-desc" data-i18n="art_page_desc">Kumpulan eksplorasi data, pemodelan prediktif machine learning, dan tutorial yang dipublikasikan di Medium.</p>
         
-        <div class="portfolio-grid fade-in appear">
+        <div class="portfolio-grid">
             <a href="https://dodhykurnia.medium.com/analisis-faktor-jumlah-kunjungan-pariwisata-dki-jakarta-d2e5e7eb040" target="_blank" rel="noopener noreferrer" class="article-card">
                 <div class="card-glass">
                     <i class='bx bx-news'></i>
-                    <h3>Analisis Faktor Jumlah Kunjungan Pariwisata DKI Jakarta</h3>
-                    <p>Menganalisis berbagai elemen pariwisata yang mempengaruhi jumlah kunjungan ke ibukota.</p>
-                    <span class="view-btn">Read on Medium <i class='bx bx-right-arrow-alt'></i></span>
+                    <h3 data-i18n="art_1_title">Analisis Faktor Jumlah Kunjungan Pariwisata DKI Jakarta</h3>
+                    <p data-i18n="art_1_desc">Menganalisis berbagai elemen pariwisata yang mempengaruhi jumlah kunjungan ke ibukota.</p>
+                    <span class="view-btn"><span data-i18n="art_read_btn">Baca di Medium</span> <i class='bx bx-right-arrow-alt'></i></span>
                 </div>
             </a>
             <a href="https://dodhykurnia.medium.com/analisis-data-streaming-lagu-spotify-indonesia-4-dec-11-dec-c82df17b9424" target="_blank" rel="noopener noreferrer" class="article-card">
                 <div class="card-glass">
                     <i class='bx bxl-spotify'></i>
-                    <h3>Analisis Data Streaming Lagu Spotify Indonesia</h3>
-                    <p>Eksplorasi data musik populer Indonesia dan perilaku pendengar di Spotify.</p>
-                    <span class="view-btn">Read on Medium <i class='bx bx-right-arrow-alt'></i></span>
+                    <h3 data-i18n="art_2_title">Analisis Data Streaming Lagu Spotify Indonesia</h3>
+                    <p data-i18n="art_2_desc">Eksplorasi data musik populer Indonesia dan perilaku pendengar di Spotify.</p>
+                    <span class="view-btn"><span data-i18n="art_read_btn">Baca di Medium</span> <i class='bx bx-right-arrow-alt'></i></span>
                 </div>
             </a>
             <a href="https://dodhykurnia.medium.com/memprediksi-gagal-jantung-dengan-machine-learning-part-2-e9075d2bd40b" target="_blank" rel="noopener noreferrer" class="article-card">
                 <div class="card-glass">
                     <i class='bx bx-pulse'></i>
-                    <h3>Memprediksi Gagal Jantung dengan ML (Part 2)</h3>
-                    <p>Lanjutan proses machine learning dan pemodelan prediktif untuk data klinis pasien gagal jantung.</p>
-                    <span class="view-btn">Read on Medium <i class='bx bx-right-arrow-alt'></i></span>
+                    <h3 data-i18n="art_3_title">Memprediksi Gagal Jantung dengan ML (Part 2)</h3>
+                    <p data-i18n="art_3_desc">Lanjutan proses machine learning dan pemodelan prediktif untuk data klinis pasien gagal jantung.</p>
+                    <span class="view-btn"><span data-i18n="art_read_btn">Baca di Medium</span> <i class='bx bx-right-arrow-alt'></i></span>
                 </div>
             </a>
             <a href="https://dodhykurnia.medium.com/memprediksi-gagal-jantung-dengan-machine-learning-part-1-123f8cede0eb" target="_blank" rel="noopener noreferrer" class="article-card">
                 <div class="card-glass">
                     <i class='bx bx-pulse'></i>
-                    <h3>Memprediksi Gagal Jantung dengan ML (Part 1)</h3>
-                    <p>Pendahuluan: Membaca dataset dan persiapan preprocessing data sebelum pelatihan model prediksi.</p>
-                    <span class="view-btn">Read on Medium <i class='bx bx-right-arrow-alt'></i></span>
+                    <h3 data-i18n="art_4_title">Memprediksi Gagal Jantung dengan ML (Part 1)</h3>
+                    <p data-i18n="art_4_desc">Pendahuluan: Membaca dataset dan persiapan preprocessing data sebelum pelatihan model prediksi.</p>
+                    <span class="view-btn"><span data-i18n="art_read_btn">Baca di Medium</span> <i class='bx bx-right-arrow-alt'></i></span>
                 </div>
             </a>
             <a href="https://dodhykurnia.medium.com/prediksi-titanic-survival-dataset-kaggle-dengan-logistic-regression-733dcf080338" target="_blank" rel="noopener noreferrer" class="article-card">
                 <div class="card-glass">
                     <i class='bx bx-ship'></i>
-                    <h3>Prediksi “Titanic Survival” Dataset [Kaggle]</h3>
-                    <p>Sebuah tutorial praktis memodelkan Logistic Regression untuk tantangan legendaris dari Kaggle.</p>
-                    <span class="view-btn">Read on Medium <i class='bx bx-right-arrow-alt'></i></span>
+                    <h3 data-i18n="art_5_title">Prediksi “Titanic Survival” Dataset [Kaggle]</h3>
+                    <p data-i18n="art_5_desc">Sebuah tutorial praktis memodelkan Logistic Regression untuk tantangan legendaris dari Kaggle.</p>
+                    <span class="view-btn"><span data-i18n="art_read_btn">Baca di Medium</span> <i class='bx bx-right-arrow-alt'></i></span>
                 </div>
             </a>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p>&copy; 2026 Dodhy Kurnia Rahmantyo. Built with passion.</p>
+            <p data-i18n="footer_art_text">&copy; 2026 Dodhy Kurnia Rahmantyo • Built with passion</p>
         </div>
     </footer>
+
+    <!-- Custom JS for language and theme toggle -->
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
