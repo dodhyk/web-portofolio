@@ -844,6 +844,24 @@ body {
     border: 1px solid rgba(14, 165, 233, 0.3);
 }
 
+.dark-mode .badge-tableau {
+    background: rgba(14, 165, 233, 0.2);
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.badge-streamlit {
+    background: rgba(255, 75, 75, 0.12);
+    color: #ff4b4b;
+    border: 1px solid rgba(255, 75, 75, 0.3);
+}
+
+.dark-mode .badge-streamlit {
+    background: rgba(255, 75, 75, 0.18);
+    color: #ff6b6b;
+    border-color: rgba(255, 75, 75, 0.4);
+}
+
 .role-pill {
     font-size: 11.5px;
     font-weight: 600;
