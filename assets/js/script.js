@@ -111,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Sertifikat
             sec_cert_title: "Sertifikat",
+            cert_dbx: '<a href="https://credentials.databricks.com/4788af55-bb4e-45d6-b2fd-d914f35d0d16" target="_blank" rel="noopener noreferrer" class="ats-project-link">Academy Accreditation - Databricks Fundamentals</a> – Databricks Academy (2026)',
             cert_1: "Project Data Analysis for Retail: Sales Performance Report - DQLab",
             cert_2: "Agile Development using Scrum Framework",
             cert_3: "Python - Data Science Certification",
@@ -151,6 +152,14 @@ document.addEventListener('DOMContentLoaded', () => {
             cat_competition_desc: "Analisis sains data olahraga kompetitif berbasis pelacakan spasial dan pergerakan taktis.",
             cat_tableau_title: "Visualisasi Data Interaktif (Tableau Public)",
             cat_tableau_desc: "Kumpulan dashboard analitik interaktif yang menyajikan data epidemiologi, demografi, olahraga, dan komersial.",
+            cat_certs_title: "Sertifikasi Profesional & Kredensial",
+            cat_certs_desc: "Kredensial dan akreditasi resmi dalam bidang arsitektur data cloud, analitik data, dan metodologi software engineering.",
+            badge_accredited: "Terakreditasi",
+            btn_view_cert: "Verifikasi Kredensial",
+            cert_dbx_desc: "Validasi pemahaman komprehensif mengenai arsitektur Databricks Lakehouse, ekosistem Data Intelligence Platform, dan tata kelola data berbasis AI.",
+            cert_dqlab_desc: "Analisis performa penjualan ritel dan pertumbuhan bisnis end-to-end dengan agregasi metrik penjualan, tren produk, dan visualisasi kinerja operasional.",
+            cert_python_desc: "Kompetensi analisis komputasi data, manipulasi struktur tabular, pemodelan statistik, dan machine learning menggunakan ekosistem Python.",
+            cert_scrum_desc: "Penerapan manajemen proyek perangkat lunak berbasis kerangka kerja Agile Scrum, kolaborasi sprint terstruktur, dan delivery produk adaptif.",
             badge_ongoing: "Sedang Berjalan",
             badge_completed: "Selesai",
             badge_opensource: "Open Source",
@@ -287,6 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Certifications
             sec_cert_title: "Certifications",
+            cert_dbx: '<a href="https://credentials.databricks.com/4788af55-bb4e-45d6-b2fd-d914f35d0d16" target="_blank" rel="noopener noreferrer" class="ats-project-link">Academy Accreditation - Databricks Fundamentals</a> – Databricks Academy (2026)',
             cert_1: "Project Data Analysis for Retail: Sales Performance Report - DQLab",
             cert_2: "Agile Development using Scrum Framework",
             cert_3: "Python - Data Science Certification",
@@ -327,6 +337,14 @@ document.addEventListener('DOMContentLoaded', () => {
             cat_competition_desc: "Competitive sports data science modeling based on spatial tracking and tactical formations.",
             cat_tableau_title: "Interactive Data Visualizations (Tableau Public)",
             cat_tableau_desc: "Interactive dashboards exploring epidemiology, demographics, sports, and commercial statistics.",
+            cat_certs_title: "Professional Certifications & Credentials",
+            cat_certs_desc: "Official certifications and accreditations in cloud data platforms, analytics engineering, and software development methodologies.",
+            badge_accredited: "Accredited",
+            btn_view_cert: "Verify Credential",
+            cert_dbx_desc: "Demonstrated comprehensive understanding of Databricks Lakehouse architecture, Data Intelligence Platform, and modern AI-driven data governance.",
+            cert_dqlab_desc: "End-to-end retail sales performance analysis and business growth metrics aggregation, product trends, and operational visualization.",
+            cert_python_desc: "Proficiency in data manipulation, tabular structure handling, statistical modeling, and machine learning using the Python data ecosystem.",
+            cert_scrum_desc: "Applied software project management with Agile Scrum framework, structured sprint collaboration, and adaptive product delivery.",
             badge_ongoing: "Ongoing",
             badge_completed: "Completed",
             badge_opensource: "Open Source",
@@ -489,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // 4. Temporarily remove hyperlinks from the portfolio section for pure ATS plain text
-        const projectLinks = cvElement.querySelectorAll('#portofolio-section a');
+        const projectLinks = cvElement.querySelectorAll('#portofolio-section a, #certifications-section a');
         const originalProjectHrefs = [];
         projectLinks.forEach((a, i) => {
             originalProjectHrefs[i] = a.getAttribute('href');
