@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             analytics_domain_title: "Distribusi Domain Proyek",
             analytics_domain_sub: "Proporsi dari 14 proyek • Klik kategori untuk memfilter",
             analytics_total_label: "Proyek",
-            analytics_filter_prefix: "Menampilkan proyek untuk:",
+            analytics_filter_prefix: "Menyoroti proyek untuk:",
             analytics_filter_reset: "Tampilkan Semua",
             analytics_projects_unit: "proyek",
             dom_data_eng: "Data Engineering & Quality",
@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
             analytics_domain_title: "Project Domain Distribution",
             analytics_domain_sub: "Share of 14 projects • Click a category to filter",
             analytics_total_label: "Projects",
-            analytics_filter_prefix: "Filtering projects by:",
+            analytics_filter_prefix: "Highlighting projects for:",
             analytics_filter_reset: "Show All",
             analytics_projects_unit: "projects",
             dom_data_eng: "Data Engineering & Quality",
@@ -480,10 +480,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeProjectFilter = null; // { type: 'tech' | 'domain', value: string }
 
     const domainMeta = [
-        { key: 'data_eng', i18nKey: 'dom_data_eng', color: '#0d6efd' },
-        { key: 'bi_viz', i18nKey: 'dom_bi_viz', color: '#0ea5e9' },
-        { key: 'backend', i18nKey: 'dom_backend', color: '#198754' },
-        { key: 'data_sci', i18nKey: 'dom_data_sci', color: '#f59e0b' }
+        { key: 'data_eng', i18nKey: 'dom_data_eng', color: '#2563eb' },
+        { key: 'bi_viz', i18nKey: 'dom_bi_viz', color: '#0891b2' },
+        { key: 'backend', i18nKey: 'dom_backend', color: '#059669' },
+        { key: 'data_sci', i18nKey: 'dom_data_sci', color: '#d97706' }
     ];
 
     function applyProjectFilter() {
@@ -497,20 +497,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     const techs = (item.getAttribute('data-tech') || '').split('|').map(t => t.trim());
                     match = techs.includes(activeProjectFilter.value);
                 } else if (activeProjectFilter.type === 'domain') {
-                    match = item.getAttribute('data-domain') === activeProjectFilter.value;
+                    const domains = (item.getAttribute('data-domain') || '').split('|').map(d => d.trim());
+                    match = domains.includes(activeProjectFilter.value);
                 }
             }
-            item.classList.toggle('is-filtered-hidden', !match);
+            item.classList.toggle('is-filtered-dimmed', Boolean(activeProjectFilter) && !match);
+            item.classList.toggle('is-filtered-match', Boolean(activeProjectFilter) && match);
             if (match) visibleCount++;
-        });
-
-        // Hide category sections that have zero visible projects (except static sections like Certifications)
-        document.querySelectorAll('.project-category-block').forEach((section) => {
-            if (section.hasAttribute('data-static-category')) return;
-            const itemsInSection = Array.from(section.querySelectorAll('[data-project-item]'));
-            if (!itemsInSection.length) return;
-            const hasVisible = itemsInSection.some(el => !el.classList.contains('is-filtered-hidden'));
-            section.classList.toggle('is-filtered-hidden', !hasVisible);
         });
 
         // Update filter status bar
@@ -567,14 +560,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const isSelected = activeProjectFilter && activeProjectFilter.type === 'tech' && activeProjectFilter.value === tech;
             const isDimmed = activeProjectFilter && !isSelected;
             return `
-                <button type="button" class="bar-row${isSelected ? ' is-active' : ''}${isDimmed ? ' is-dimmed' : ''}" data-filter-tech="${tech}" role="listitem">
-                    <div class="bar-label-row">
-                        <span class="bar-tech-name">${tech}</span>
-                        <span class="bar-tech-count">${count} ${unitLabel}</span>
-                    </div>
+                <button type="button" class="bar-row${isSelected ? ' is-active' : ''}${isDimmed ? ' is-dimmed' : ''}" data-filter-tech="${tech}" role="listitem" title="${tech}: ${count} ${unitLabel}">
+                    <span class="bar-tech-name">${tech}</span>
                     <div class="bar-track">
                         <div class="bar-fill" style="width: ${pct}%;"></div>
                     </div>
+                    <span class="bar-tech-count">${count}</span>
                 </button>
             `;
         }).join('');
@@ -585,24 +576,30 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // 2. Aggregate Domain Counts from DOM
+        // 2. Aggregate Domain Counts from DOM (supports multi-domain items)
         const domainCounts = {};
+        let totalDomainAssignments = 0;
         projectItems.forEach((item) => {
-            const dom = item.getAttribute('data-domain');
-            if (dom) domainCounts[dom] = (domainCounts[dom] || 0) + 1;
+            const domains = (item.getAttribute('data-domain') || '').split('|').map(d => d.trim()).filter(Boolean);
+            domains.forEach((dom) => {
+                domainCounts[dom] = (domainCounts[dom] || 0) + 1;
+                totalDomainAssignments++;
+            });
         });
 
         const totalProjects = projectItems.length;
-        const radius = 52;
+        const radius = 56;
         const circumference = 2 * Math.PI * radius;
+        const gapSize = 3.5;
         let cumulativeOffset = 0;
 
         const segmentsSvg = domainMeta.map((dom) => {
             const count = domainCounts[dom.key] || 0;
-            const fraction = totalProjects ? count / totalProjects : 0;
-            const dashLength = fraction * circumference;
+            const fraction = totalDomainAssignments ? count / totalDomainAssignments : 0;
+            const rawLength = fraction * circumference;
+            const dashLength = Math.max(0, rawLength - gapSize);
             const dashOffset = -cumulativeOffset;
-            cumulativeOffset += dashLength;
+            cumulativeOffset += rawLength;
 
             const isSelected = activeProjectFilter && activeProjectFilter.type === 'domain' && activeProjectFilter.value === dom.key;
             const isDimmed = activeProjectFilter && !isSelected;
@@ -610,7 +607,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return `
                 <circle
                     class="donut-segment${isSelected ? ' is-active' : ''}${isDimmed ? ' is-dimmed' : ''}"
-                    cx="70" cy="70" r="${radius}"
+                    cx="75" cy="75" r="${radius}"
                     stroke="${dom.color}"
                     stroke-dasharray="${dashLength} ${circumference - dashLength}"
                     stroke-dashoffset="${dashOffset}"
@@ -631,7 +628,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         domainDonutEl.innerHTML = `
-            <svg class="donut-svg" viewBox="0 0 140 140" aria-hidden="false">
+            <svg class="donut-svg" viewBox="0 0 150 150" aria-hidden="false">
+                <circle class="donut-track" cx="75" cy="75" r="${radius}"></circle>
                 ${segmentsSvg}
             </svg>
             <div class="donut-center">
@@ -642,7 +640,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         domainLegendEl.innerHTML = domainMeta.map((dom) => {
             const count = domainCounts[dom.key] || 0;
-            const pct = totalProjects ? Math.round((count / totalProjects) * 100) : 0;
+            const pct = totalDomainAssignments ? Math.round((count / totalDomainAssignments) * 100) : 0;
             const label = dict[dom.i18nKey] || dom.key;
             const isSelected = activeProjectFilter && activeProjectFilter.type === 'domain' && activeProjectFilter.value === dom.key;
             const isDimmed = activeProjectFilter && !isSelected;
