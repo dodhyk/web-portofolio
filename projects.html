@@ -49,6 +49,51 @@
             </p>
         </header>
 
+        <!-- Interactive Tech Stack & Domain Analytics -->
+        <section class="skills-analytics-section" aria-label="Ringkasan Teknologi dan Domain Proyek">
+            <div class="analytics-grid">
+                <!-- Horizontal Bar Chart Card -->
+                <div class="card-glass analytics-card">
+                    <div class="analytics-card-header">
+                        <div>
+                            <h3 data-i18n="analytics_tech_title">Teknologi yang Digunakan</h3>
+                            <p class="analytics-subtitle" data-i18n="analytics_tech_sub">Jumlah proyek per teknologi • Klik bar untuk memfilter</p>
+                        </div>
+                        <i class='bx bx-bar-chart-alt-2 analytics-header-icon'></i>
+                    </div>
+                    <div id="tech-bar-chart" class="bar-chart-list" role="list"></div>
+                </div>
+
+                <!-- Donut Chart Card -->
+                <div class="card-glass analytics-card">
+                    <div class="analytics-card-header">
+                        <div>
+                            <h3 data-i18n="analytics_domain_title">Distribusi Domain Proyek</h3>
+                            <p class="analytics-subtitle" data-i18n="analytics_domain_sub">Proporsi dari 14 proyek • Klik kategori untuk memfilter</p>
+                        </div>
+                        <i class='bx bx-pie-chart-alt-2 analytics-header-icon'></i>
+                    </div>
+                    <div class="donut-layout">
+                        <div class="donut-wrapper" id="domain-donut-chart"></div>
+                        <div class="donut-legend" id="domain-donut-legend" role="list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Filter Bar -->
+            <div id="project-filter-bar" class="filter-status-bar" hidden>
+                <span class="filter-status-text">
+                    <i class='bx bx-filter-alt'></i>
+                    <span data-i18n="analytics_filter_prefix">Menampilkan proyek untuk:</span>
+                    <strong id="active-filter-label"></strong>
+                    <span id="active-filter-count" class="filter-count-pill"></span>
+                </span>
+                <button type="button" id="reset-project-filter" class="filter-reset-btn">
+                    <i class='bx bx-x'></i> <span data-i18n="analytics_filter_reset">Tampilkan Semua</span>
+                </button>
+            </div>
+        </section>
+
         <!-- Category 1: Enterprise & Office Projects (Solecode) -->
         <section class="project-category-block">
             <div class="category-header">
@@ -61,7 +106,7 @@
 
             <div class="portfolio-grid">
                 <!-- ISS EV Charging -->
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="backend" data-tech="NestJS / Node.js|Docker / OpenShift">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-ongoing" data-i18n="badge_ongoing">Sedang Berjalan</span>
@@ -83,7 +128,7 @@
                 </article>
 
                 <!-- ISS Fuel Alat Berat -->
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="backend" data-tech="NestJS / Node.js|PostgreSQL|Docker / OpenShift">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-ongoing" data-i18n="badge_ongoing">Sedang Berjalan</span>
@@ -105,7 +150,7 @@
                 </article>
 
                 <!-- Medco Data Management -->
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="data_eng" data-tech="ETL (Talend / DataStage)|Data Quality &amp; Modeling">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-completed" data-i18n="badge_completed">Selesai</span>
@@ -127,7 +172,7 @@
                 </article>
 
                 <!-- Data Warehouse & BI System -->
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="data_eng" data-tech="ETL (Talend / DataStage)|PostgreSQL|Java / Spring Boot|BI &amp; Visualization">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-completed" data-i18n="badge_completed">Selesai</span>
@@ -151,7 +196,7 @@
                 </article>
 
                 <!-- MKBD Reporting System -->
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="backend" data-tech="Java / Spring Boot|BI &amp; Visualization">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-completed" data-i18n="badge_completed">Selesai</span>
@@ -173,7 +218,7 @@
                 </article>
 
                 <!-- Screening 3 -->
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="backend" data-tech="REST API / Integration">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-completed" data-i18n="badge_completed">Selesai</span>
@@ -208,7 +253,7 @@
             </div>
 
             <!-- ScrimMate Suite: Feature Showcase with Roadmap -->
-            <article class="scrimmate-hero-card">
+            <article class="scrimmate-hero-card" data-project-item data-domain="data_sci" data-tech="Python|NestJS / Node.js|Data Quality &amp; Modeling">
                 <div class="scrimmate-header">
                     <div class="scrimmate-meta">
                         <span class="status-badge badge-ongoing" data-i18n="badge_ongoing">Sedang Berjalan</span>
@@ -260,7 +305,7 @@
 
             <div class="portfolio-grid" style="margin-top: 25px;">
                 <!-- Haskell Data Quality -->
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="data_eng" data-tech="Haskell|Data Quality &amp; Modeling">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-github"><i class='bx bxl-github'></i> <span data-i18n="badge_opensource">Open Source</span></span>
@@ -283,7 +328,7 @@
                 </article>
 
                 <!-- Dirty Dataset Generator -->
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="data_eng" data-tech="Python|Data Quality &amp; Modeling">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-streamlit"><i class='bx bx-globe'></i> <span data-i18n="badge_streamlit">Streamlit App</span></span>
@@ -320,7 +365,7 @@
 
             <div class="portfolio-grid">
                 <!-- Analytics Cup 2 -->
-                <article class="project-showcase-card full-width-card">
+                <article class="project-showcase-card full-width-card" data-project-item data-domain="data_sci" data-tech="Python">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-trophy"><i class='bx bx-award'></i> Analytics Cup 2</span>
@@ -358,7 +403,7 @@
             </div>
 
             <div class="portfolio-grid">
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="bi_viz" data-tech="BI &amp; Visualization">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-tableau">Tableau Public</span>
@@ -371,7 +416,7 @@
                     </div>
                 </article>
 
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="bi_viz" data-tech="BI &amp; Visualization">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-tableau">Tableau Public</span>
@@ -384,7 +429,7 @@
                     </div>
                 </article>
 
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="bi_viz" data-tech="BI &amp; Visualization">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-tableau">Tableau Public</span>
@@ -397,7 +442,7 @@
                     </div>
                 </article>
 
-                <article class="project-showcase-card">
+                <article class="project-showcase-card" data-project-item data-domain="bi_viz" data-tech="BI &amp; Visualization">
                     <div class="card-glass">
                         <div class="card-top">
                             <span class="status-badge badge-tableau">Tableau Public</span>
@@ -410,8 +455,10 @@
                     </div>
                 </article>
             </div>
+        </section>
+
         <!-- Category 5: Professional Certifications & Credentials -->
-        <section class="project-category-block">
+        <section class="project-category-block" data-static-category="true">
             <div class="category-header">
                 <div class="category-icon"><i class='bx bx-certification'></i></div>
                 <div>
@@ -515,7 +562,7 @@
     </footer>
 
     <!-- Custom JS for language and theme toggle -->
-    <script src="assets/js/script.js?v=3.1"></script>
+    <script src="assets/js/script.js?v=3.2"></script>
 </body>
 
 </html>

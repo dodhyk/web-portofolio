@@ -167,6 +167,18 @@ document.addEventListener('DOMContentLoaded', () => {
             cert_dqlab_desc: "Analisis performa penjualan ritel dan pertumbuhan bisnis end-to-end dengan agregasi metrik penjualan, tren produk, dan visualisasi kinerja operasional.",
             cert_python_desc: "Kompetensi analisis komputasi data, manipulasi struktur tabular, pemodelan statistik, dan machine learning menggunakan ekosistem Python.",
             cert_scrum_desc: "Penerapan manajemen proyek perangkat lunak berbasis kerangka kerja Agile Scrum, kolaborasi sprint terstruktur, dan delivery produk adaptif.",
+            analytics_tech_title: "Teknologi yang Digunakan",
+            analytics_tech_sub: "Jumlah proyek per teknologi • Klik bar untuk memfilter",
+            analytics_domain_title: "Distribusi Domain Proyek",
+            analytics_domain_sub: "Proporsi dari 14 proyek • Klik kategori untuk memfilter",
+            analytics_total_label: "Proyek",
+            analytics_filter_prefix: "Menampilkan proyek untuk:",
+            analytics_filter_reset: "Tampilkan Semua",
+            analytics_projects_unit: "proyek",
+            dom_data_eng: "Data Engineering & Quality",
+            dom_bi_viz: "BI & Visualisasi Data",
+            dom_backend: "Backend & Cloud/DevOps",
+            dom_data_sci: "Data Science & Analitik",
             badge_ongoing: "Sedang Berjalan",
             badge_completed: "Selesai",
             badge_opensource: "Open Source",
@@ -359,6 +371,18 @@ document.addEventListener('DOMContentLoaded', () => {
             cert_dqlab_desc: "End-to-end retail sales performance analysis and business growth metrics aggregation, product trends, and operational visualization.",
             cert_python_desc: "Proficiency in data manipulation, tabular structure handling, statistical modeling, and machine learning using the Python data ecosystem.",
             cert_scrum_desc: "Applied software project management with Agile Scrum framework, structured sprint collaboration, and adaptive product delivery.",
+            analytics_tech_title: "Technologies Used",
+            analytics_tech_sub: "Projects per technology • Click a bar to filter",
+            analytics_domain_title: "Project Domain Distribution",
+            analytics_domain_sub: "Share of 14 projects • Click a category to filter",
+            analytics_total_label: "Projects",
+            analytics_filter_prefix: "Filtering projects by:",
+            analytics_filter_reset: "Show All",
+            analytics_projects_unit: "projects",
+            dom_data_eng: "Data Engineering & Quality",
+            dom_bi_viz: "BI & Data Visualization",
+            dom_backend: "Backend & Cloud/DevOps",
+            dom_data_sci: "Data Science & Analytics",
             badge_ongoing: "Ongoing",
             badge_completed: "Completed",
             badge_opensource: "Open Source",
@@ -429,6 +453,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+
+        if (typeof renderProjectsAnalytics === 'function') {
+            renderProjectsAnalytics();
+        }
     }
 
     if (btnLangId) {
@@ -436,6 +464,227 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (btnLangEn) {
         btnLangEn.addEventListener('click', () => setLanguage('en'));
+    }
+
+    // =========================================================================
+    // Projects Page Analytics (Horizontal Bar Chart & SVG Donut Chart)
+    // =========================================================================
+    const techBarChartEl = document.getElementById('tech-bar-chart');
+    const domainDonutEl = document.getElementById('domain-donut-chart');
+    const domainLegendEl = document.getElementById('domain-donut-legend');
+    const filterBarEl = document.getElementById('project-filter-bar');
+    const activeFilterLabelEl = document.getElementById('active-filter-label');
+    const activeFilterCountEl = document.getElementById('active-filter-count');
+    const resetFilterBtn = document.getElementById('reset-project-filter');
+    const projectItems = Array.from(document.querySelectorAll('[data-project-item]'));
+    let activeProjectFilter = null; // { type: 'tech' | 'domain', value: string }
+
+    const domainMeta = [
+        { key: 'data_eng', i18nKey: 'dom_data_eng', color: '#0d6efd' },
+        { key: 'bi_viz', i18nKey: 'dom_bi_viz', color: '#0ea5e9' },
+        { key: 'backend', i18nKey: 'dom_backend', color: '#198754' },
+        { key: 'data_sci', i18nKey: 'dom_data_sci', color: '#f59e0b' }
+    ];
+
+    function applyProjectFilter() {
+        if (!projectItems.length) return;
+
+        let visibleCount = 0;
+        projectItems.forEach((item) => {
+            let match = true;
+            if (activeProjectFilter) {
+                if (activeProjectFilter.type === 'tech') {
+                    const techs = (item.getAttribute('data-tech') || '').split('|').map(t => t.trim());
+                    match = techs.includes(activeProjectFilter.value);
+                } else if (activeProjectFilter.type === 'domain') {
+                    match = item.getAttribute('data-domain') === activeProjectFilter.value;
+                }
+            }
+            item.classList.toggle('is-filtered-hidden', !match);
+            if (match) visibleCount++;
+        });
+
+        // Hide category sections that have zero visible projects (except static sections like Certifications)
+        document.querySelectorAll('.project-category-block').forEach((section) => {
+            if (section.hasAttribute('data-static-category')) return;
+            const itemsInSection = Array.from(section.querySelectorAll('[data-project-item]'));
+            if (!itemsInSection.length) return;
+            const hasVisible = itemsInSection.some(el => !el.classList.contains('is-filtered-hidden'));
+            section.classList.toggle('is-filtered-hidden', !hasVisible);
+        });
+
+        // Update filter status bar
+        if (filterBarEl && activeFilterLabelEl && activeFilterCountEl) {
+            if (activeProjectFilter) {
+                const dict = translations[currentLang] || translations.id;
+                let displayName = activeProjectFilter.value;
+                if (activeProjectFilter.type === 'domain') {
+                    const meta = domainMeta.find(d => d.key === activeProjectFilter.value);
+                    if (meta && dict[meta.i18nKey]) displayName = dict[meta.i18nKey];
+                }
+                activeFilterLabelEl.textContent = displayName;
+                activeFilterCountEl.textContent = `${visibleCount} ${dict.analytics_projects_unit || 'proyek'}`;
+                filterBarEl.hidden = false;
+            } else {
+                filterBarEl.hidden = true;
+            }
+        }
+    }
+
+    function toggleProjectFilter(type, value) {
+        if (activeProjectFilter && activeProjectFilter.type === type && activeProjectFilter.value === value) {
+            activeProjectFilter = null;
+        } else {
+            activeProjectFilter = { type, value };
+        }
+        applyProjectFilter();
+        renderProjectsAnalytics();
+    }
+
+    function renderProjectsAnalytics() {
+        if (!techBarChartEl || !domainDonutEl || !domainLegendEl || !projectItems.length) return;
+
+        const dict = translations[currentLang] || translations.id;
+        const unitLabel = dict.analytics_projects_unit || 'proyek';
+
+        // 1. Aggregate Technology Counts from DOM
+        const techCounts = {};
+        projectItems.forEach((item) => {
+            const techs = (item.getAttribute('data-tech') || '').split('|').map(t => t.trim()).filter(Boolean);
+            techs.forEach((tech) => {
+                techCounts[tech] = (techCounts[tech] || 0) + 1;
+            });
+        });
+
+        const sortedTechs = Object.entries(techCounts)
+            .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+            .slice(0, 8);
+
+        const maxTechCount = sortedTechs.length ? sortedTechs[0][1] : 1;
+
+        techBarChartEl.innerHTML = sortedTechs.map(([tech, count]) => {
+            const pct = Math.round((count / maxTechCount) * 100);
+            const isSelected = activeProjectFilter && activeProjectFilter.type === 'tech' && activeProjectFilter.value === tech;
+            const isDimmed = activeProjectFilter && !isSelected;
+            return `
+                <button type="button" class="bar-row${isSelected ? ' is-active' : ''}${isDimmed ? ' is-dimmed' : ''}" data-filter-tech="${tech}" role="listitem">
+                    <div class="bar-label-row">
+                        <span class="bar-tech-name">${tech}</span>
+                        <span class="bar-tech-count">${count} ${unitLabel}</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width: ${pct}%;"></div>
+                    </div>
+                </button>
+            `;
+        }).join('');
+
+        techBarChartEl.querySelectorAll('[data-filter-tech]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                toggleProjectFilter('tech', btn.getAttribute('data-filter-tech'));
+            });
+        });
+
+        // 2. Aggregate Domain Counts from DOM
+        const domainCounts = {};
+        projectItems.forEach((item) => {
+            const dom = item.getAttribute('data-domain');
+            if (dom) domainCounts[dom] = (domainCounts[dom] || 0) + 1;
+        });
+
+        const totalProjects = projectItems.length;
+        const radius = 52;
+        const circumference = 2 * Math.PI * radius;
+        let cumulativeOffset = 0;
+
+        const segmentsSvg = domainMeta.map((dom) => {
+            const count = domainCounts[dom.key] || 0;
+            const fraction = totalProjects ? count / totalProjects : 0;
+            const dashLength = fraction * circumference;
+            const dashOffset = -cumulativeOffset;
+            cumulativeOffset += dashLength;
+
+            const isSelected = activeProjectFilter && activeProjectFilter.type === 'domain' && activeProjectFilter.value === dom.key;
+            const isDimmed = activeProjectFilter && !isSelected;
+
+            return `
+                <circle
+                    class="donut-segment${isSelected ? ' is-active' : ''}${isDimmed ? ' is-dimmed' : ''}"
+                    cx="70" cy="70" r="${radius}"
+                    stroke="${dom.color}"
+                    stroke-dasharray="${dashLength} ${circumference - dashLength}"
+                    stroke-dashoffset="${dashOffset}"
+                    data-filter-domain="${dom.key}"
+                    tabindex="0"
+                    role="button"
+                    aria-label="${dict[dom.i18nKey] || dom.key}: ${count} ${unitLabel}"
+                ></circle>
+            `;
+        }).join('');
+
+        let centerValue = totalProjects;
+        let centerLabel = dict.analytics_total_label || 'Proyek';
+        if (activeProjectFilter && activeProjectFilter.type === 'domain') {
+            const activeMeta = domainMeta.find(d => d.key === activeProjectFilter.value);
+            centerValue = domainCounts[activeProjectFilter.value] || 0;
+            centerLabel = activeMeta ? (dict[activeMeta.i18nKey] || activeMeta.key) : centerLabel;
+        }
+
+        domainDonutEl.innerHTML = `
+            <svg class="donut-svg" viewBox="0 0 140 140" aria-hidden="false">
+                ${segmentsSvg}
+            </svg>
+            <div class="donut-center">
+                <span class="donut-center-value">${centerValue}</span>
+                <span class="donut-center-label">${centerLabel}</span>
+            </div>
+        `;
+
+        domainLegendEl.innerHTML = domainMeta.map((dom) => {
+            const count = domainCounts[dom.key] || 0;
+            const pct = totalProjects ? Math.round((count / totalProjects) * 100) : 0;
+            const label = dict[dom.i18nKey] || dom.key;
+            const isSelected = activeProjectFilter && activeProjectFilter.type === 'domain' && activeProjectFilter.value === dom.key;
+            const isDimmed = activeProjectFilter && !isSelected;
+
+            return `
+                <button type="button" class="legend-item${isSelected ? ' is-active' : ''}${isDimmed ? ' is-dimmed' : ''}" data-filter-domain="${dom.key}" role="listitem">
+                    <span class="legend-left">
+                        <span class="legend-dot" style="background: ${dom.color};"></span>
+                        <span class="legend-name">${label}</span>
+                    </span>
+                    <span class="legend-metric">${count} (${pct}%)</span>
+                </button>
+            `;
+        }).join('');
+
+        domainDonutEl.querySelectorAll('[data-filter-domain]').forEach((el) => {
+            el.addEventListener('click', () => {
+                toggleProjectFilter('domain', el.getAttribute('data-filter-domain'));
+            });
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleProjectFilter('domain', el.getAttribute('data-filter-domain'));
+                }
+            });
+        });
+
+        domainLegendEl.querySelectorAll('[data-filter-domain]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                toggleProjectFilter('domain', btn.getAttribute('data-filter-domain'));
+            });
+        });
+
+        applyProjectFilter();
+    }
+
+    if (resetFilterBtn) {
+        resetFilterBtn.addEventListener('click', () => {
+            activeProjectFilter = null;
+            applyProjectFilter();
+            renderProjectsAnalytics();
+        });
     }
 
     // Initialize with saved language
