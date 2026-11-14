@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
             analytics_tech_title: "Teknologi yang Digunakan",
             analytics_tech_sub: "Jumlah proyek per teknologi • Klik bar untuk memfilter",
             analytics_domain_title: "Distribusi Domain Proyek",
-            analytics_domain_sub: "Proporsi dari 14 proyek • Klik kategori untuk memfilter",
+            analytics_domain_sub: "Proporsi dari 15 proyek • Klik kategori untuk memfilter",
             analytics_total_label: "Proyek",
             analytics_filter_prefix: "Menyoroti proyek untuk:",
             analytics_filter_reset: "Tampilkan Semua",
@@ -180,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dom_backend: "Backend & Cloud/DevOps",
             dom_data_sci: "Data Science & Analitik",
             badge_ongoing: "Sedang Berjalan",
+            badge_in_progress: "In Progress",
             badge_completed: "Selesai",
             badge_opensource: "Open Source",
             company_personal: "Proyek Pribadi",
@@ -210,7 +211,8 @@ document.addEventListener('DOMContentLoaded', () => {
             phase_5_desc: "Riset variabel performa per role, perancangan matriks evaluasi, validasi data, dan aplikasi talent scouting.",
             phase_status_research: "Riset & Desain",
             proj_haskell_desc: "Eksplorasi penjaminan kualitas dan validasi integritas dataset memanfaatkan paradigma functional programming yang murni, matematis, dan type-safe di Haskell.",
-            proj_dirty_desc: "Generator data sintesis yang menyuntikkan berbagai anomali realistis (missing values, typo, inkonsistensi tipe data, outlier) untuk stress-testing pipeline pembersihan data dan model ML."
+            proj_dirty_desc: "Generator data sintesis yang menyuntikkan berbagai anomali realistis (missing values, typo, inkonsistensi tipe data, outlier) untuk stress-testing pipeline pembersihan data dan model ML.",
+            proj_oyon_desc: "Platform deteksi perubahan dan perbandingan data (Data Difference Checking) berbasis .NET 8 Modular Monolith, React + TypeScript + Vite, PostgreSQL, dan Docker Compose. Dilengkapi envelope encryption AES-256-GCM dengan isolasi Local KEK di luar database (siap migrasi ke Cloud KMS/Vault/OpenBao), Nginx reverse proxy non-root, serta unit &amp; integration tests keamanan kredensial."
         },
 
         en: {
@@ -374,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
             analytics_tech_title: "Technologies Used",
             analytics_tech_sub: "Projects per technology • Click a bar to filter",
             analytics_domain_title: "Project Domain Distribution",
-            analytics_domain_sub: "Share of 14 projects • Click a category to filter",
+            analytics_domain_sub: "Share of 15 projects • Click a category to filter",
             analytics_total_label: "Projects",
             analytics_filter_prefix: "Highlighting projects for:",
             analytics_filter_reset: "Show All",
@@ -384,6 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dom_backend: "Backend & Cloud/DevOps",
             dom_data_sci: "Data Science & Analytics",
             badge_ongoing: "Ongoing",
+            badge_in_progress: "In Progress",
             badge_completed: "Completed",
             badge_opensource: "Open Source",
             company_personal: "Personal Project",
@@ -414,7 +417,8 @@ document.addEventListener('DOMContentLoaded', () => {
             phase_5_desc: "In-depth research on role-specific performance variables, evaluation matrix design, validation, and talent scouting app.",
             phase_status_research: "Research & Design",
             proj_haskell_desc: "Exploration of dataset quality assurance and integrity validation leveraging Haskell's pure, mathematical, and type-safe functional programming paradigm.",
-            proj_dirty_desc: "Synthetic data generator injecting realistic anomalies (missing values, typos, schema inconsistencies, outliers) for stress-testing data cleaning pipelines and ML models."
+            proj_dirty_desc: "Synthetic data generator injecting realistic anomalies (missing values, typos, schema inconsistencies, outliers) for stress-testing data cleaning pipelines and ML models.",
+            proj_oyon_desc: "Data Change Detection &amp; Difference Checking platform built as a .NET 8 Modular Monolith with React + TypeScript + Vite, PostgreSQL, and Docker Compose. Features AES-256-GCM envelope encryption with isolated Local KEK outside the database (ready for Cloud KMS/Vault/OpenBao), unprivileged Nginx reverse proxy, and automated credential security tests."
         }
     };
 
